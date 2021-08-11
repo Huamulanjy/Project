@@ -1,6 +1,7 @@
-master branch :
+on master branch :
 
-cpp
-.h
 
-main
+c++ coding exercise!
+
+
+FLAG: study everyday!!!
