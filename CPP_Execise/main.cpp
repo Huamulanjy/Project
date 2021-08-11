@@ -702,9 +702,43 @@ void test02()
 
 }
 
+void test03()
+{
+    string str1 = "I ";
+    cout << "original str1：" << str1 <<endl;
+    str1 += "like ";
+    cout << "string overload operator+=() 拼接：" << str1 <<endl;
+
+    str1 += 'h';
+    cout << "string overload operator+=() 拼接：" << str1 << endl;
+    string str2 = "playing game";
+    cout << "original str2：" << str2 << endl;
+    str1 += str2;
+    cout << "string overload operator+=() 拼接：" << str1 << endl;
+
+    string str3 = "TOM";
+    cout << "original str3：" << str3 << endl;
+    str3.append(" love ");
+    cout << "append：" << str3 << endl;
+
+    str3.append("game adsfsdf",6);
+    cout << "append, str3 is: " << str3 << endl;
+
+
+    str3.append(str2);
+    cout << "append str2 to str3：" << str3 << endl;
+
+    str3.append(str2, 0, 4);
+    cout << "str3：" << str3 << endl;
+
+
+
+
+}
 int main()
 {
 //    test01();
-    test02();
+//    test02();
+    test03();
     return 0;
 }

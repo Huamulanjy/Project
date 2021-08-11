@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/lhj/projects/CPP_Execise/main.cpp
+/home/lhj/projects/test/CPP_Execise/main.cpp
 iostream
 -
 functional

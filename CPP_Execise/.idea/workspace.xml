@@ -11,7 +11,26 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72a0d628-6e98-4c58-ac09-8040de4f793d" name="Default Changelist" comment="" />
+    <list default="true" id="72a0d628-6e98-4c58-ac09-8040de4f793d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp_execise.dir/CXX.includecache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp_execise.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp_execise.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp_execise.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp_execise.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp_execise.dir/depend.internal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp_execise.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cpp_execise" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cpp_execise" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cpp_execise.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cpp_execise.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +40,11 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1wRyhWWgFCWjVUimFHcG9NgojdW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,6 +52,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -52,6 +76,7 @@
       <workItem from="1628435816737" duration="5197000" />
       <workItem from="1628517248921" duration="4914000" />
       <workItem from="1628607619676" duration="4721000" />
+      <workItem from="1628695117683" duration="3764000" />
     </task>
     <servers />
   </component>
@@ -59,33 +84,49 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1679" height="266" key="GridCell.Tab.0.bottom" timestamp="1628613427613">
+    <state x="424" y="38" key="CommitChangelistDialog2" timestamp="1628697324979">
       <screen x="65" y="24" width="1731" height="983" />
     </state>
-    <state width="1679" height="266" key="GridCell.Tab.0.bottom/65.24.1731.983@65.24.1731.983" timestamp="1628613427613" />
+    <state x="424" y="38" key="CommitChangelistDialog2/65.24.1731.983@65.24.1731.983" timestamp="1628697324979" />
+    <state x="238" y="94" key="DiffContextDialog" timestamp="1628695400288">
+      <screen x="65" y="24" width="1731" height="983" />
+    </state>
+    <state x="238" y="94" key="DiffContextDialog/65.24.1731.983@65.24.1731.983" timestamp="1628695400288" />
+    <state width="1679" height="329" key="GridCell.Tab.0.bottom" timestamp="1628700539549">
+      <screen x="65" y="24" width="1731" height="983" />
+    </state>
+    <state width="1679" height="329" key="GridCell.Tab.0.bottom/65.24.1731.983@65.24.1731.983" timestamp="1628700539549" />
     <state width="779" height="266" key="GridCell.Tab.0.bottom/65.24.831.981@65.24.831.981" timestamp="1628611944432" />
-    <state width="779" height="266" key="GridCell.Tab.0.bottom/65.24.831.982@65.24.831.982" timestamp="1628608410575" />
+    <state width="779" height="329" key="GridCell.Tab.0.bottom/65.24.831.982@65.24.831.982" timestamp="1628698190270" />
     <state width="800" height="266" key="GridCell.Tab.0.bottom/65.24.852.981@65.24.852.981" timestamp="1628608675328" />
-    <state width="1679" height="266" key="GridCell.Tab.0.center" timestamp="1628613427611">
+    <state width="1679" height="329" key="GridCell.Tab.0.center" timestamp="1628700539547">
       <screen x="65" y="24" width="1731" height="983" />
     </state>
-    <state width="1679" height="266" key="GridCell.Tab.0.center/65.24.1731.983@65.24.1731.983" timestamp="1628613427611" />
+    <state width="1679" height="329" key="GridCell.Tab.0.center/65.24.1731.983@65.24.1731.983" timestamp="1628700539547" />
     <state width="779" height="266" key="GridCell.Tab.0.center/65.24.831.981@65.24.831.981" timestamp="1628611944429" />
-    <state width="779" height="266" key="GridCell.Tab.0.center/65.24.831.982@65.24.831.982" timestamp="1628608410570" />
+    <state width="779" height="329" key="GridCell.Tab.0.center/65.24.831.982@65.24.831.982" timestamp="1628698190267" />
     <state width="800" height="266" key="GridCell.Tab.0.center/65.24.852.981@65.24.852.981" timestamp="1628608675325" />
-    <state width="1679" height="266" key="GridCell.Tab.0.left" timestamp="1628613427610">
+    <state width="1679" height="329" key="GridCell.Tab.0.left" timestamp="1628700539547">
       <screen x="65" y="24" width="1731" height="983" />
     </state>
-    <state width="1679" height="266" key="GridCell.Tab.0.left/65.24.1731.983@65.24.1731.983" timestamp="1628613427610" />
+    <state width="1679" height="329" key="GridCell.Tab.0.left/65.24.1731.983@65.24.1731.983" timestamp="1628700539547" />
     <state width="779" height="266" key="GridCell.Tab.0.left/65.24.831.981@65.24.831.981" timestamp="1628611944428" />
-    <state width="779" height="266" key="GridCell.Tab.0.left/65.24.831.982@65.24.831.982" timestamp="1628608410567" />
+    <state width="779" height="329" key="GridCell.Tab.0.left/65.24.831.982@65.24.831.982" timestamp="1628698190266" />
     <state width="800" height="266" key="GridCell.Tab.0.left/65.24.852.981@65.24.852.981" timestamp="1628608675324" />
-    <state width="1679" height="266" key="GridCell.Tab.0.right" timestamp="1628613427612">
+    <state width="1679" height="329" key="GridCell.Tab.0.right" timestamp="1628700539547">
       <screen x="65" y="24" width="1731" height="983" />
     </state>
-    <state width="1679" height="266" key="GridCell.Tab.0.right/65.24.1731.983@65.24.1731.983" timestamp="1628613427612" />
+    <state width="1679" height="329" key="GridCell.Tab.0.right/65.24.1731.983@65.24.1731.983" timestamp="1628700539547" />
     <state width="779" height="266" key="GridCell.Tab.0.right/65.24.831.981@65.24.831.981" timestamp="1628611944430" />
-    <state width="779" height="266" key="GridCell.Tab.0.right/65.24.831.982@65.24.831.982" timestamp="1628608410571" />
+    <state width="779" height="329" key="GridCell.Tab.0.right/65.24.831.982@65.24.831.982" timestamp="1628698190269" />
     <state width="800" height="266" key="GridCell.Tab.0.right/65.24.852.981@65.24.852.981" timestamp="1628608675327" />
+    <state x="65" y="84" width="1533" height="812" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1628697245118">
+      <screen x="65" y="24" width="1731" height="983" />
+    </state>
+    <state x="65" y="84" width="1533" height="812" key="com.intellij.history.integration.ui.views.FileHistoryDialog/65.24.1731.983@65.24.1731.983" timestamp="1628697245118" />
+    <state x="164" y="96" width="1533" height="812" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1628697266291">
+      <screen x="65" y="24" width="1731" height="983" />
+    </state>
+    <state x="164" y="96" width="1533" height="812" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/65.24.1731.983@65.24.1731.983" timestamp="1628697266291" />
   </component>
 </project>
