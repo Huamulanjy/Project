@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lhj/projects/CPP_Execise/main.cpp
+iostream
+-
+functional
+-
+iostream
+-
+iostream
+-
+vector
+-
+iostream
+-
+functional
+-
+memory
+-
+iostream
+-
+iostream
+-
+vector
+-
+
