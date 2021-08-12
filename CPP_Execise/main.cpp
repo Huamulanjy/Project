@@ -702,7 +702,7 @@ void test02()
 
 }
 
-void test03()
+void TestStrPlus03()
 {
     string str1 = "I ";
     cout << "original str1：" << str1 <<endl;
@@ -735,10 +735,52 @@ void test03()
 
 
 }
+//string :find();   replace();
+void TestFind04()
+{
+    string str1 = "asdfghjklfg";
+    int pos = str1.find("fg");
+
+    if(pos == -1)
+    {
+        cout << "not find!!" <<endl;
+
+    } else{
+        cout << "find str position: ";
+    }
+    cout << "pos = " << pos <<endl;
+
+//    rfind
+    pos = str1.rfind("fg");
+    cout << "pos = " << pos <<endl;
+}
+
+void TestReplace05()
+{
+    string str1 = "abcdefg";
+    str1.replace(1, 3, "1111");
+
+    cout << "str1 = " << str1 <<endl;
+}
+
+void StrCompare()
+{
+    string str1 = "hello";
+    string str2 = "hello";
+//    str2.append("world");
+    if (str1 == str2)
+    {
+        cout << "compare: str1 == str2" <<endl;
+    }
+
+}
 int main()
 {
 //    test01();
 //    test02();
-    test03();
+//    TestStrPlus03();
+//    TestFind04();
+//    TestReplace05();
+    StrCompare();
     return 0;
 }
