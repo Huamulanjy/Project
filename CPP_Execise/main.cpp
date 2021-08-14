@@ -763,8 +763,7 @@ void TestReplace05()
     cout << "str1 = " << str1 <<endl;
 }
 
-void StrCompare()
-{
+void StrCompare() {
     string str1 = "hello";
     string str2 = "hello";
 //    str2.append("world");
@@ -772,8 +771,55 @@ void StrCompare()
     {
         cout << "compare: str1 == str2" <<endl;
     }
-
 }
+
+//    string access
+void CharAccessOfStr()
+{
+    string str = "hello";
+//    cout << "str: " << str <<endl;
+
+//    for (int i = 0; i < str.size(); i++)//same as follows
+    cout << "access char of str: " <<endl;
+    cout << "1.access str via []: ";
+    for (int i = 0; i < str.size(); i++)
+    {
+        cout << str[i] << " ";
+    }
+    cout <<endl;
+    cout << "2.access str via at: ";
+    for (int i = 0; i < str.size(); i++)
+    {
+        cout << str.at(i) << " ";
+    }
+    cout <<endl;
+    cout << "3.access str via range-based for loop: ";
+//    for (char i :str)
+    for (char &i : str)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+}
+
+//str.insert();erase();
+
+//substr()
+void Substr()
+{
+    string str = "abcdef";
+    string substr = str.substr(1,3);
+    cout << "substr: " << substr << endl;
+
+    string email = "zhangsan@sina.com";
+    int pos = email.find('@');//8
+
+    string usrName = email.substr(0,pos);
+    cout << "get usrName from email: " << usrName <<endl;
+}
+
+
+
 int main()
 {
 //    test01();
@@ -781,6 +827,8 @@ int main()
 //    TestStrPlus03();
 //    TestFind04();
 //    TestReplace05();
-    StrCompare();
+//    StrCompare();
+//    CharAccessOfStr();
+    Substr();
     return 0;
 }

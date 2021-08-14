@@ -15,6 +15,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp_execise.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cpp_execise.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cpp_execise" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cpp_execise" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +64,7 @@
       <workItem from="1628607619676" duration="4721000" />
       <workItem from="1628695117683" duration="3764000" />
       <workItem from="1628783485724" duration="2902000" />
-      <workItem from="1628787347606" duration="1752000" />
+      <workItem from="1628787347606" duration="4180000" />
     </task>
     <servers />
   </component>
@@ -87,33 +88,33 @@
       <screen x="65" y="24" width="1731" height="983" />
     </state>
     <state x="658" y="260" key="FileChooserDialogImpl/65.24.1731.983@65.24.1731.983" timestamp="1628787376243" />
-    <state width="1679" height="328" key="GridCell.Tab.0.bottom" timestamp="1628786389521">
-      <screen x="65" y="24" width="1731" height="983" />
+    <state width="779" height="327" key="GridCell.Tab.0.bottom" timestamp="1628956066648">
+      <screen x="65" y="24" width="831" height="982" />
     </state>
     <state width="1679" height="328" key="GridCell.Tab.0.bottom/65.24.1731.983@65.24.1731.983" timestamp="1628786389521" />
     <state width="779" height="266" key="GridCell.Tab.0.bottom/65.24.831.981@65.24.831.981" timestamp="1628611944432" />
-    <state width="779" height="328" key="GridCell.Tab.0.bottom/65.24.831.982@65.24.831.982" timestamp="1628785967471" />
+    <state width="779" height="327" key="GridCell.Tab.0.bottom/65.24.831.982@65.24.831.982" timestamp="1628956066648" />
     <state width="800" height="266" key="GridCell.Tab.0.bottom/65.24.852.981@65.24.852.981" timestamp="1628608675328" />
-    <state width="1679" height="328" key="GridCell.Tab.0.center" timestamp="1628786389518">
-      <screen x="65" y="24" width="1731" height="983" />
+    <state width="779" height="327" key="GridCell.Tab.0.center" timestamp="1628956066646">
+      <screen x="65" y="24" width="831" height="982" />
     </state>
     <state width="1679" height="328" key="GridCell.Tab.0.center/65.24.1731.983@65.24.1731.983" timestamp="1628786389518" />
     <state width="779" height="266" key="GridCell.Tab.0.center/65.24.831.981@65.24.831.981" timestamp="1628611944429" />
-    <state width="779" height="328" key="GridCell.Tab.0.center/65.24.831.982@65.24.831.982" timestamp="1628785967469" />
+    <state width="779" height="327" key="GridCell.Tab.0.center/65.24.831.982@65.24.831.982" timestamp="1628956066646" />
     <state width="800" height="266" key="GridCell.Tab.0.center/65.24.852.981@65.24.852.981" timestamp="1628608675325" />
-    <state width="1679" height="328" key="GridCell.Tab.0.left" timestamp="1628786389516">
-      <screen x="65" y="24" width="1731" height="983" />
+    <state width="779" height="327" key="GridCell.Tab.0.left" timestamp="1628956066642">
+      <screen x="65" y="24" width="831" height="982" />
     </state>
     <state width="1679" height="328" key="GridCell.Tab.0.left/65.24.1731.983@65.24.1731.983" timestamp="1628786389516" />
     <state width="779" height="266" key="GridCell.Tab.0.left/65.24.831.981@65.24.831.981" timestamp="1628611944428" />
-    <state width="779" height="328" key="GridCell.Tab.0.left/65.24.831.982@65.24.831.982" timestamp="1628785967468" />
+    <state width="779" height="327" key="GridCell.Tab.0.left/65.24.831.982@65.24.831.982" timestamp="1628956066642" />
     <state width="800" height="266" key="GridCell.Tab.0.left/65.24.852.981@65.24.852.981" timestamp="1628608675324" />
-    <state width="1679" height="328" key="GridCell.Tab.0.right" timestamp="1628786389520">
-      <screen x="65" y="24" width="1731" height="983" />
+    <state width="779" height="327" key="GridCell.Tab.0.right" timestamp="1628956066647">
+      <screen x="65" y="24" width="831" height="982" />
     </state>
     <state width="1679" height="328" key="GridCell.Tab.0.right/65.24.1731.983@65.24.1731.983" timestamp="1628786389520" />
     <state width="779" height="266" key="GridCell.Tab.0.right/65.24.831.981@65.24.831.981" timestamp="1628611944430" />
-    <state width="779" height="328" key="GridCell.Tab.0.right/65.24.831.982@65.24.831.982" timestamp="1628785967470" />
+    <state width="779" height="327" key="GridCell.Tab.0.right/65.24.831.982@65.24.831.982" timestamp="1628956066647" />
     <state width="800" height="266" key="GridCell.Tab.0.right/65.24.852.981@65.24.852.981" timestamp="1628608675327" />
     <state x="65" y="84" width="1533" height="812" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1628697245118">
       <screen x="65" y="24" width="1731" height="983" />
