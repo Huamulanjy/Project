@@ -276,9 +276,8 @@ int main()
 }*/
 
 
-/*
-//STL
 //****************vector************
+/*
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -651,7 +650,10 @@ int main()
 
 }
  */
-//**********************string*************8
+
+//**********************string*************
+
+/*
 #include <iostream>
 #include <vector>
 #include <string>
@@ -805,6 +807,7 @@ void CharAccessOfStr()
 //str.insert();erase();
 
 //substr()
+
 void Substr()
 {
     string str = "abcdef";
@@ -818,8 +821,6 @@ void Substr()
     cout << "get usrName from email: " << usrName <<endl;
 }
 
-
-
 int main()
 {
 //    test01();
@@ -830,5 +831,201 @@ int main()
 //    StrCompare();
 //    CharAccessOfStr();
     Substr();
+    return 0;
+}
+*/
+//**********************deque*************
+/*
+#include <iostream>
+#include <deque>
+#include <algorithm>
+
+using namespace std;
+
+void PrintDeque(const deque<int>&d)
+{
+     //   use range_based for loop
+    for (int it : d)
+    {
+        cout << it <<" ";
+    }
+    cout << endl;
+    //normal
+
+//    for (auto it = d.begin(); it != d.end(); it++)
+//    {
+//        cout << *it <<" ";
+//    }
+//    cout << endl;
+
+}
+
+void DequeConstructorFun()
+{
+    deque<int>dq;
+    for (int i = 0; i < 10; i++)
+    {
+        dq.push_back(i);
+    }
+    cout << "dq: " << endl;
+    PrintDeque(dq);
+//operator=()
+    deque<int>d2;
+    d2 = dq;
+    cout << "d2: " << endl;
+    PrintDeque(d2);
+//    assign
+    deque<int>d4;
+   d4.assign(dq.begin(), dq.end());
+    cout << "d4: " << endl;
+    PrintDeque(d4);
+    deque<int>d5;
+    d5.assign(10,3);
+    cout << "d5: " << endl;
+    PrintDeque(d5);
+//copy-construc
+    deque<int>d3(dq);
+    cout << "d3: " << endl;
+    PrintDeque(d3);
+}
+
+void InsertPushPop()
+{
+    deque<int>d1;
+    d1.push_back(9);
+    d1.push_back(11);
+    d1.push_front(2);
+    d1.push_front(1);
+    PrintDeque(d1);//1 2 9 11
+
+    d1.insert(d1.begin(), 0);
+    PrintDeque(d1);
+    d1.insert(d1.begin(), 2,100);
+    PrintDeque(d1);
+
+    deque<int>d2;
+    d2.push_back(1);
+    d2.push_back(2);
+    d2.push_back(3);
+    d1.insert(d1.begin(), d2.begin(), d2.end());
+    PrintDeque(d1);
+}
+
+void DequeSort()
+{
+    deque<int> d1;
+    d1.push_back(10);
+    d1.push_back(20);
+    d1.push_back(30);
+    d1.push_front(100);
+    d1.push_front(200);
+    d1.push_front(300);
+//    300 200 100 10 20 30
+    cout << "original d1: " << endl;
+    PrintDeque(d1);
+    cout << "after sort(): " << endl;
+    sort(d1.begin(), d1.end());
+    PrintDeque(d1);
+}
+int main()
+{
+    DequeConstructorFun();
+    InsertPushPop();
+    DequeSort();
+    return 0;
+}
+ */
+
+//STL-example1
+
+#include <iostream>
+#include <utility>
+#include <vector>
+#include <string>
+#include <deque>
+#include <algorithm>
+
+using namespace std;
+
+class Person
+{
+public:
+    Person(string name, int score) : m_Name(std::move(name)), m_Score(score) {};
+
+    string m_Name;
+    int m_Score{};
+};
+
+void CreatPerson2Vector(vector<Person>&v)
+{
+    string nameSeed = "ABCDE";
+//    string name;
+    for (int i = 0; i < 5; i++)
+    {
+        string name = "person ";
+                name += nameSeed[i];
+//        cout << name << endl;
+        int score = 0;//默认平均分数为0
+
+        Person p(name, score);//用构造函数初始化对象。
+//        放入容器中
+        v.push_back(p);
+    }
+}
+//
+void SetScore(vector<Person>&v)
+{
+    for (auto it = v.begin(); it != v.end(); it++)
+    {
+        deque<int>d;
+        for (int i = 0; i < 10; i++)
+        {
+            int score = rand() % 41 + 60;//[60,100]生成伪随机数
+            d.push_back(score);
+        }
+//        显示打分结果.遍历容器deque
+        cout << "person: " << it->m_Name << " score: " <<endl;
+        for (auto & i : d)
+        {
+            cout << i <<" ";
+        }
+        cout << endl;
+
+//        排序默认小到大
+        sort(d.begin(), d.end());
+//        去除最高最低分
+        d.pop_back();
+        d.pop_front();
+//        求和
+        u_int32_t sum = 0;
+        for (auto dit = d.begin(); dit != d.end(); dit++)
+        {
+            sum += *dit;
+        }
+        u_int32_t avg = sum / d.size();
+//        将平均分赋值给选手
+        it->m_Score = avg;
+    }
+}
+
+void ShowScore(vector<Person>&v)
+{
+    for (auto it = v.begin(); it != v.end(); it++)
+    {
+        cout << "name: " << it->m_Name << " aver_score: " << it->m_Score << endl;
+    }
+}
+
+int main()
+{
+//    随机数种子。使得每次运行结果不一样。随机
+    srand((unsigned int)time(nullptr));
+//设置对象
+    vector<Person> v;
+    CreatPerson2Vector(v);
+//10个评委打分
+    SetScore(v);
+//输出分数
+    ShowScore(v);
     return 0;
 }
