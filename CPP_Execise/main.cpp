@@ -937,7 +937,7 @@ int main()
  */
 
 //STL-example1
-
+/*
 #include <iostream>
 #include <utility>
 #include <vector>
@@ -1029,3 +1029,53 @@ int main()
     ShowScore(v);
     return 0;
 }
+*/
+//*************stack**************
+/*
+#include <iostream>
+#include <stack>
+using namespace std;
+
+void TestStack()
+{
+    std::stack<int>st;
+    st.push(10);
+    st.push(20);
+    st.push(30);
+
+    cout << "size of stack: " << st.size() <<endl;
+
+    while (!st.empty())
+    {
+        cout << "top elem: " << st.top() << endl;
+        st.pop();
+    }
+    cout << "size of stack after pop: " << st.size() <<endl;
+}
+int main()
+{
+    TestStack();
+    return 0;
+}
+ */
+
+
+//程序的内存模型：代码区、全局区（全局变量、静态变量、常量--字符串常量，const全局变量）； 栈区（局部变量，不要返回局部变量的地址！！！）
+//、堆区
+/*
+#include <iostream>
+using namespace std;
+int* fun()
+{
+    int a = 10;//存放在栈区，函数执行完后内存已经释放，找不到地址。
+    return &a;
+}
+
+int main()
+{
+    int *p = fun();
+
+    cout << *p << endl;
+    return 0;
+}
+ */
