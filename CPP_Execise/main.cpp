@@ -64,7 +64,7 @@ public:
 //         bool      need_fadeout; // 接近设定距离时减速
 //     };
 
-///*     ActMove(const std::string &name, Chassis *chassis, const ActionArgs *arg);
+/*     ActMove(const std::string &name, Chassis *chassis, const ActionArgs *arg);
     ActMove(){};
 //     kMinTimeoutMs(kMinTimeoutMs), 
 //     kLinearAlpha(kLinearAlpha), 
@@ -141,6 +141,7 @@ cout<<"遍历vector";
     return 0;
 }*/
 
+//*************functional
 
 // 3.1 使用std::bind()和std::function来实现
 // std::function是通用的多态函数封装器，它的实例可以存储、复制以及调用任何可以调用的目标：函数，lambda表达式/bind表达式或其他函数对象，还有指向成员函数指针和指向数据成员指针；
@@ -227,6 +228,82 @@ int main()
 // 使用std::move的方式保存function对象到classA中
  */
 
+#include <functional>
+#include <iostream>
+#include <string>
+using namespace std;
+
+std::function<int(int)> Functional;
+std::function<void(int a)> fun1;
+std::function<void(string str)> fun2;
+std::function<string(int a, int b)> fun3;
+// 普通函数
+int TestFunc(int a)
+{
+    cout << "normal_function" <<endl;
+    return a;
+}
+
+// Lambda表达式
+auto lambda = [](int a)->int{ return a; };
+auto lambda1 = [](int a, int b)->string{ int c = a + b;return "hello"; };
+
+// 仿函数(functor)
+class Functor
+{
+public:
+    int operator()(int a)
+    {
+        return a;
+    }
+};
+
+// 1.类成员函数
+// 2.类静态函数
+class TestClass
+{
+public:
+    int ClassMemberFunc(int a) { return a; }
+    static int StaticMember(int a) { return a; }
+};
+
+
+int main()
+{
+    // 普通函数
+    Functional = TestFunc;
+    int result = Functional(10);
+    cout << "普通函数："<< result << endl;
+
+    // Lambda表达式
+    Functional = lambda;
+    result = Functional(20);
+    cout << "Lambda表达式："<< result << endl;
+
+    // 仿函数
+    Functor testFunctor;
+    Functional = testFunctor;
+    result = Functional(30);
+    cout << "仿函数："<< result << endl;
+
+    // 类成员函数
+    TestClass testObj;     //定义对象
+    Functional = std::bind(&TestClass::ClassMemberFunc, testObj, std::placeholders::_1);    //绑定
+    result = Functional(40);
+    cout << "类成员函数："<< result << endl;
+
+    // 类静态函数
+    Functional = TestClass::StaticMember;
+    result = Functional(50);
+    cout << "类静态函数："<< result << endl;
+
+    fun1 = TestFunc;
+    fun1(1);
+
+    fun3 = lambda1;
+    cout << fun3(2, 3) <<endl;
+    return 0;
+}
 
 //bubblesort
 /*
@@ -1058,6 +1135,8 @@ int main()
     return 0;
 }
  */
+
+
 
 
 //程序的内存模型：代码区、全局区（全局变量、静态变量、常量--字符串常量，const全局变量）； 栈区（局部变量，不要返回局部变量的地址！！！）
