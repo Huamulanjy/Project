@@ -227,7 +227,7 @@ int main()
 // lambda表达式中捕获了classB的this指针
 // 使用std::move的方式保存function对象到classA中
  */
-
+/*
 #include <functional>
 #include <iostream>
 #include <string>
@@ -304,7 +304,7 @@ int main()
     cout << fun3(2, 3) <<endl;
     return 0;
 }
-
+*/
 //bubblesort
 /*
 #include <iostream>
@@ -1158,3 +1158,557 @@ int main()
     return 0;
 }
  */
+
+//*********给定成绩输出成绩等级
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <iostream>
+#include <random>
+using namespace std;
+
+class Person
+{
+public:
+    Person(int score, int grade) : m_Score(score), m_grade(grade) {};
+
+//    string m_Name;
+    int m_Score;
+    int m_grade;
+};
+
+void Set1GirlJumpScore()
+{
+    std::deque<int>d;
+    std::vector<double>run;
+    for (int i = 0; i < 19; i++)
+    {
+        int score = rand() % 25 + 119;//生成伪随机数 119  143     143-119+1
+        d.push_back(score);
+
+//        double e;
+//        uniform_real_distribution<double> u(6.1, 6.4);
+//        run.push_back(u(e));
+    }
+    cout << "一年级女生跳远成绩" << endl;
+    for(auto &it : d)
+    {
+        cout << it << endl;
+    }
+        cout << "对应的grade" << endl;
+        for(int & it : d) {
+            if (it >= 119 && it < 123) {
+                cout << "70" << endl;
+            } else if (it >= 123 && it < 127) {
+                cout << "75" << endl;
+            } else if (it >= 127 && it < 131) {
+                cout << "80" << endl;
+            } else if (it >= 131 && it < 135) {
+                cout << "85" << endl;
+            } else if (it >= 135 && it < 139) {
+                cout << "90" << endl;
+            } else if (it >= 139 && it < 143) {
+                cout << "95" << endl;
+            } else if (it >= 143) {
+                cout << "100" << endl;
+            }
+        }
+       /* cout << "一年级女生30Mrun成绩" << endl;
+        for(auto &iteme : run)
+        {
+            cout << iteme << endl;
+        }
+        cout << "对应的grade" << endl;
+        for(int & item : d)
+        {
+            if(item <= 6.1)
+            {
+                cout << "100" << endl;
+            } else if(item > 6.1 && item <= 6.2)
+            {
+                cout << "95" << endl;
+            }else if(item > 6.2 && item <= 6.3)
+            {
+                cout << "90" << endl;
+            }else if(item >= 6.3 && item < 6.4)
+            {
+                cout << "85" << endl;
+            }
+//        cout << deq << " ";
+    }
+    cout << endl;*/
+}
+
+void Set1BoyJumpScore() {
+    std::deque<int> d;
+    cout << "一年级boy跳远成绩" << endl;
+    for (int i = 0; i < 23; i++) {
+        int score = rand() % 25 + 129;//生成伪随机数 129  153
+        d.push_back(score);
+    }
+
+    /*for (int &it : d) {
+        if (it >= 129 && it < 133) {
+            cout << it << " " << "70" << endl;
+        } else if (it >= 133 && it < 137) {
+            cout << it << " " << "75" << endl;
+        } else if (it >= 137 && it < 141) {
+            cout << it << " " << "80" << endl;
+        } else if (it >= 141 && it < 145) {
+            cout << it << " " << "85" << endl;
+        } else if (it >= 145 && it < 149) {
+            cout << it << " " << "90" << endl;
+        } else if (it >= 149 && it < 153) {
+            cout << it << " " << "95" << endl;
+        } else if (it >= 153) {
+            cout << it << " " << "100" << endl;
+        }
+//    cout << endl;*/
+    for (auto &it : d) {
+        cout << it << endl;
+    }
+    cout << "对应的grade" << endl;
+    for (int &it : d) {
+        if (it >= 129 && it < 133) {
+            cout << "70" << endl;
+        } else if (it >= 133 && it < 137) {
+            cout << "75" << endl;
+        } else if (it >= 137 && it < 141) {
+            cout << "80" << endl;
+        } else if (it >= 141 && it < 145) {
+            cout << "85" << endl;
+        } else if (it >= 145 && it < 149) {
+            cout << "90" << endl;
+        } else if (it >= 149 && it < 153) {
+            cout << "95" << endl;
+        } else if (it >= 153) {
+            cout << "100" << endl;
+        }
+//    cout << endl;*/
+    }
+}
+
+void Set1GirlboyboolAndticaoScore()
+{
+    std::deque<int>d;
+    for (int i = 0; i < 44; i++)
+    {
+        int score = rand() % 16 + 85;//生成伪随机数 85,100
+        d.push_back(score);
+    }
+    cout << "一年级女生bool&ticao成绩" << endl;
+    for(auto &it : d)
+    {
+        cout << it << endl;
+    }
+    cout << endl;
+}
+
+void Set1Girl30sTiaoShenScore()
+{
+    std::deque<int>d;
+    for (int i = 0; i < 19; i++)
+    {
+        int score = rand() % 13 + 60;//生成伪随机数 60~72
+        d.push_back(score);
+    }
+    cout << "一年级女生跳shen成绩" << endl;
+    for(auto &it : d)
+    {
+        cout << it << endl;
+    }
+    /* for(auto it = d.begin(); it != d.end(); it++)
+     {
+         if(*it >= 119 && *it < 123)
+         {
+             cout << *it << " " << "70" << endl;
+         } else if(*it >= 123 && *it < 127)
+         {
+             cout << *it << " " << "75" << endl;
+         }else if(*it >= 127 && *it < 131)
+         {
+             cout << *it << " " << "80" << endl;
+         }else if(*it >= 131 && *it < 135)
+         {
+             cout << *it << " " << "85" << endl;
+         }else if(*it >= 135 && *it < 139)
+         {
+             cout << *it << " " << "90" << endl;
+         }else if(*it >= 139 && *it < 143)
+         {
+             cout << *it << " " << "95" << endl;
+         }else if(*it >= 143 )
+         {
+             cout << *it << " " << "100" << endl;
+         } */
+    cout << "对应的grade" << endl;
+    for(int & it : d)
+    {
+        if(it >= 60 && it < 63)
+        {
+            cout << "80" << endl;
+        } else if(it >= 63 && it < 66)
+        {
+            cout << "85" << endl;
+        }else if(it >= 66 && it < 69)
+        {
+            cout << "90" << endl;
+        }else if(it >= 69 && it < 72)
+        {
+            cout << "95" << endl;
+        }else if(it >= 72 )
+        {
+            cout << "100" << endl;
+        }
+//        cout << deq << " ";
+    }
+    cout << endl;
+}
+void Set1Boy30sTiaoShenScore() {
+    std::deque<int> d;
+    cout << "一年级boy跳shen成绩" << endl;
+    for (int i = 0; i < 23; i++) {
+        int score = rand() % 13 + 55;//生成伪随机数 55,67
+        d.push_back(score);
+    }
+//    cout << endl;*/
+    for (auto &it : d) {
+        cout << it << endl;
+    }
+    cout << "对应的grade" << endl;
+    for (int &it : d) {
+        if(it >= 55 && it < 58)
+        {
+            cout << "80" << endl;
+        } else if(it >= 58 && it < 61)
+        {
+            cout << "85" << endl;
+        }else if(it >= 61 && it < 64)
+        {
+            cout << "90" << endl;
+        }else if(it >= 64 && it < 67)
+        {
+            cout << "95" << endl;
+        }else if(it >= 67 )
+        {
+            cout << "100" << endl;
+        }
+//    cout << endl;*/
+    }
+}
+
+void Set4Girl30sTiaoShenScore()
+{
+    std::deque<int>d;
+    for (int i = 0; i < 20; i++)
+    {
+        int score = rand() % 13 + 60;//生成伪随机数 60~72
+        d.push_back(score);
+    }
+    cout << "一年级女生跳shen成绩" << endl;
+    for(auto &it : d)
+    {
+        cout << it << endl;
+    }
+    /* for(auto it = d.begin(); it != d.end(); it++)
+     {
+         if(*it >= 119 && *it < 123)
+         {
+             cout << *it << " " << "70" << endl;
+         } else if(*it >= 123 && *it < 127)
+         {
+             cout << *it << " " << "75" << endl;
+         }else if(*it >= 127 && *it < 131)
+         {
+             cout << *it << " " << "80" << endl;
+         }else if(*it >= 131 && *it < 135)
+         {
+             cout << *it << " " << "85" << endl;
+         }else if(*it >= 135 && *it < 139)
+         {
+             cout << *it << " " << "90" << endl;
+         }else if(*it >= 139 && *it < 143)
+         {
+             cout << *it << " " << "95" << endl;
+         }else if(*it >= 143 )
+         {
+             cout << *it << " " << "100" << endl;
+         } */
+    cout << "对应的grade" << endl;
+    for(int & it : d)
+    {
+        if(it >= 60 && it < 63)
+        {
+            cout << "80" << endl;
+        } else if(it >= 63 && it < 66)
+        {
+            cout << "85" << endl;
+        }else if(it >= 66 && it < 69)
+        {
+            cout << "90" << endl;
+        }else if(it >= 69 && it < 72)
+        {
+            cout << "95" << endl;
+        }else if(it >= 72 )
+        {
+            cout << "100" << endl;
+        }
+//        cout << deq << " ";
+    }
+    cout << endl;
+}
+void Set4Boy30sTiaoShenScore() {
+    std::deque<int> d;
+    cout << "一年级boy跳shen成绩" << endl;
+    for (int i = 0; i < 22; i++) {
+        int score = rand() % 13 + 55;//生成伪随机数 55,67
+        d.push_back(score);
+    }
+//    cout << endl;*/
+    for (auto &it : d) {
+        cout << it << endl;
+    }
+    cout << "对应的grade" << endl;
+    for (int &it : d) {
+        if(it >= 55 && it < 58)
+        {
+            cout << "80" << endl;
+        } else if(it >= 58 && it < 61)
+        {
+            cout << "85" << endl;
+        }else if(it >= 61 && it < 64)
+        {
+            cout << "90" << endl;
+        }else if(it >= 64 && it < 67)
+        {
+            cout << "95" << endl;
+        }else if(it >= 67 )
+        {
+            cout << "100" << endl;
+        }
+//    cout << endl;*/
+    }
+}
+
+void Set10Girl30sTiaoShenScore()
+{
+    std::deque<int>d;
+    for (int i = 0; i < 20; i++)
+    {
+        int score = rand() % 13 + 60;//生成伪随机数 60~72
+        d.push_back(score);
+    }
+    cout << "一年级女生跳shen成绩" << endl;
+    for(auto &it : d)
+    {
+        cout << it << endl;
+    }
+    /* for(auto it = d.begin(); it != d.end(); it++)
+     {
+         if(*it >= 119 && *it < 123)
+         {
+             cout << *it << " " << "70" << endl;
+         } else if(*it >= 123 && *it < 127)
+         {
+             cout << *it << " " << "75" << endl;
+         }else if(*it >= 127 && *it < 131)
+         {
+             cout << *it << " " << "80" << endl;
+         }else if(*it >= 131 && *it < 135)
+         {
+             cout << *it << " " << "85" << endl;
+         }else if(*it >= 135 && *it < 139)
+         {
+             cout << *it << " " << "90" << endl;
+         }else if(*it >= 139 && *it < 143)
+         {
+             cout << *it << " " << "95" << endl;
+         }else if(*it >= 143 )
+         {
+             cout << *it << " " << "100" << endl;
+         } */
+    cout << "对应的grade" << endl;
+    for(int & it : d)
+    {
+        if(it >= 60 && it < 63)
+        {
+            cout << "80" << endl;
+        } else if(it >= 63 && it < 66)
+        {
+            cout << "85" << endl;
+        }else if(it >= 66 && it < 69)
+        {
+            cout << "90" << endl;
+        }else if(it >= 69 && it < 72)
+        {
+            cout << "95" << endl;
+        }else if(it >= 72 )
+        {
+            cout << "100" << endl;
+        }
+//        cout << deq << " ";
+    }
+    cout << endl;
+}
+void Set10Boy30sTiaoShenScore() {
+    std::deque<int> d;
+    cout << "一年级boy跳shen成绩" << endl;
+    for (int i = 0; i < 23; i++) {
+        int score = rand() % 13 + 55;//生成伪随机数 55,67
+        d.push_back(score);
+    }
+//    cout << endl;*/
+    for (auto &it : d) {
+        cout << it << endl;
+    }
+    cout << "对应的grade" << endl;
+    for (int &it : d) {
+        if(it >= 55 && it < 58)
+        {
+            cout << "80" << endl;
+        } else if(it >= 58 && it < 61)
+        {
+            cout << "85" << endl;
+        }else if(it >= 61 && it < 64)
+        {
+            cout << "90" << endl;
+        }else if(it >= 64 && it < 67)
+        {
+            cout << "95" << endl;
+        }else if(it >= 67 )
+        {
+            cout << "100" << endl;
+        }
+//    cout << endl;*/
+    }
+}
+
+void Set11Girl30sTiaoShenScore()
+{
+    std::deque<int>d;
+    for (int i = 0; i < 20; i++)
+    {
+        int score = rand() % 13 + 60;//生成伪随机数 60~72
+        d.push_back(score);
+    }
+    cout << "一年级女生跳shen成绩" << endl;
+    for(auto &it : d)
+    {
+        cout << it << endl;
+    }
+    /* for(auto it = d.begin(); it != d.end(); it++)
+     {
+         if(*it >= 119 && *it < 123)
+         {
+             cout << *it << " " << "70" << endl;
+         } else if(*it >= 123 && *it < 127)
+         {
+             cout << *it << " " << "75" << endl;
+         }else if(*it >= 127 && *it < 131)
+         {
+             cout << *it << " " << "80" << endl;
+         }else if(*it >= 131 && *it < 135)
+         {
+             cout << *it << " " << "85" << endl;
+         }else if(*it >= 135 && *it < 139)
+         {
+             cout << *it << " " << "90" << endl;
+         }else if(*it >= 139 && *it < 143)
+         {
+             cout << *it << " " << "95" << endl;
+         }else if(*it >= 143 )
+         {
+             cout << *it << " " << "100" << endl;
+         } */
+    cout << "对应的grade" << endl;
+    for(int & it : d)
+    {
+        if(it >= 60 && it < 63)
+        {
+            cout << "80" << endl;
+        } else if(it >= 63 && it < 66)
+        {
+            cout << "85" << endl;
+        }else if(it >= 66 && it < 69)
+        {
+            cout << "90" << endl;
+        }else if(it >= 69 && it < 72)
+        {
+            cout << "95" << endl;
+        }else if(it >= 72 )
+        {
+            cout << "100" << endl;
+        }
+//        cout << deq << " ";
+    }
+    cout << endl;
+}
+void Set11Boy30sTiaoShenScore() {
+    std::deque<int> d;
+    cout << "一年级boy跳shen成绩" << endl;
+    for (int i = 0; i < 24; i++) {
+        int score = rand() % 13 + 55;//生成伪随机数 55,67
+        d.push_back(score);
+    }
+//    cout << endl;*/
+    for (auto &it : d) {
+        cout << it << endl;
+    }
+    cout << "对应的grade" << endl;
+    for (int &it : d) {
+        if(it >= 55 && it < 58)
+        {
+            cout << "80" << endl;
+        } else if(it >= 58 && it < 61)
+        {
+            cout << "85" << endl;
+        }else if(it >= 61 && it < 64)
+        {
+            cout << "90" << endl;
+        }else if(it >= 64 && it < 67)
+        {
+            cout << "95" << endl;
+        }else if(it >= 67 )
+        {
+            cout << "100" << endl;
+        }
+//    cout << endl;*/
+    }
+}
+
+
+int main()
+{
+    srand((unsigned int)time(nullptr));//随机数种子。使得每次运行结果不一样。
+    std::vector<int> v;
+
+//    Set1GirlJumpScore();
+//    Set1BoyJumpScore();
+//    Set1GirlboyboolAndticaoScore();
+//    Set1Girl30sTiaoShenScore();
+//    Set1Boy30sTiaoShenScore();
+
+//    Set4Girl30sTiaoShenScore();
+//    Set4Boy30sTiaoShenScore();
+
+//Set10Girl30sTiaoShenScore();
+//Set10Boy30sTiaoShenScore();
+
+//Set11Girl30sTiaoShenScore();
+//Set11Boy30sTiaoShenScore();
+cout << "girl" << endl;
+default_random_engine e;
+    uniform_real_distribution<double> u(6.1, 6.4);
+    for(int i = 0; i < 20; ++i)
+{
+    cout << u(e) << endl;
+}
+    cout << "boy" << endl;
+    default_random_engine en;
+    uniform_real_distribution<double> u1(5.9, 6.2);
+    for(int i = 0; i < 24; ++i)
+    {
+        cout << u1(en) << endl;
+    }
+    return 0;
+}
