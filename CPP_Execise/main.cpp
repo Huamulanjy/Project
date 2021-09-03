@@ -142,7 +142,7 @@ cout<<"遍历vector";
 }*/
 
 //*************functional
-
+/*
 // 3.1 使用std::bind()和std::function来实现
 // std::function是通用的多态函数封装器，它的实例可以存储、复制以及调用任何可以调用的目标：函数，lambda表达式/bind表达式或其他函数对象，还有指向成员函数指针和指向数据成员指针；
 // std::bind接受一个函数（或者函数对象），生成一个重新组织的函数对象；
@@ -171,6 +171,8 @@ cout<<"遍历vector";
 // };
 // // bind函数中显示的传递classB的this指针作为第一个参数给回调函数；
 // // std::placeholders:_1代表一个占位符，用于回调函数显式的入参；
+
+ */
 /*
 
 #include <iostream>
@@ -305,6 +307,30 @@ int main()
     return 0;
 }
 */
+
+//**************std::shared_ptr<>
+
+
+// shared_ptr::get() example
+#include <iostream>
+#include <memory>
+
+int main ()
+{
+    int* p = new int (10);
+    std::shared_ptr<int> a (p);
+
+    if (a.get()==p)
+        std::cout << "a and p point to the same location\n";
+
+    // three ways of accessing the same address:
+    std::cout << *a.get() << "\n";
+    std::cout << *a << "\n";
+    std::cout << *p << "\n";
+
+    return 0;
+}
+
 //bubblesort
 /*
 #include <iostream>
@@ -1160,6 +1186,7 @@ int main()
  */
 
 //*********给定成绩输出成绩等级
+/*
 #include <iostream>
 #include <vector>
 #include <deque>
@@ -1213,30 +1240,6 @@ void Set1GirlJumpScore()
                 cout << "100" << endl;
             }
         }
-       /* cout << "一年级女生30Mrun成绩" << endl;
-        for(auto &iteme : run)
-        {
-            cout << iteme << endl;
-        }
-        cout << "对应的grade" << endl;
-        for(int & item : d)
-        {
-            if(item <= 6.1)
-            {
-                cout << "100" << endl;
-            } else if(item > 6.1 && item <= 6.2)
-            {
-                cout << "95" << endl;
-            }else if(item > 6.2 && item <= 6.3)
-            {
-                cout << "90" << endl;
-            }else if(item >= 6.3 && item < 6.4)
-            {
-                cout << "85" << endl;
-            }
-//        cout << deq << " ";
-    }
-    cout << endl;*/
 }
 
 void Set1BoyJumpScore() {
@@ -1247,23 +1250,7 @@ void Set1BoyJumpScore() {
         d.push_back(score);
     }
 
-    /*for (int &it : d) {
-        if (it >= 129 && it < 133) {
-            cout << it << " " << "70" << endl;
-        } else if (it >= 133 && it < 137) {
-            cout << it << " " << "75" << endl;
-        } else if (it >= 137 && it < 141) {
-            cout << it << " " << "80" << endl;
-        } else if (it >= 141 && it < 145) {
-            cout << it << " " << "85" << endl;
-        } else if (it >= 145 && it < 149) {
-            cout << it << " " << "90" << endl;
-        } else if (it >= 149 && it < 153) {
-            cout << it << " " << "95" << endl;
-        } else if (it >= 153) {
-            cout << it << " " << "100" << endl;
-        }
-//    cout << endl;*/
+
     for (auto &it : d) {
         cout << it << endl;
     }
@@ -1284,7 +1271,7 @@ void Set1BoyJumpScore() {
         } else if (it >= 153) {
             cout << "100" << endl;
         }
-//    cout << endl;*/
+//    cout << endl;
     }
 }
 
@@ -1317,30 +1304,7 @@ void Set1Girl30sTiaoShenScore()
     {
         cout << it << endl;
     }
-    /* for(auto it = d.begin(); it != d.end(); it++)
-     {
-         if(*it >= 119 && *it < 123)
-         {
-             cout << *it << " " << "70" << endl;
-         } else if(*it >= 123 && *it < 127)
-         {
-             cout << *it << " " << "75" << endl;
-         }else if(*it >= 127 && *it < 131)
-         {
-             cout << *it << " " << "80" << endl;
-         }else if(*it >= 131 && *it < 135)
-         {
-             cout << *it << " " << "85" << endl;
-         }else if(*it >= 135 && *it < 139)
-         {
-             cout << *it << " " << "90" << endl;
-         }else if(*it >= 139 && *it < 143)
-         {
-             cout << *it << " " << "95" << endl;
-         }else if(*it >= 143 )
-         {
-             cout << *it << " " << "100" << endl;
-         } */
+
     cout << "对应的grade" << endl;
     for(int & it : d)
     {
@@ -1371,7 +1335,7 @@ void Set1Boy30sTiaoShenScore() {
         int score = rand() % 13 + 55;//生成伪随机数 55,67
         d.push_back(score);
     }
-//    cout << endl;*/
+
     for (auto &it : d) {
         cout << it << endl;
     }
@@ -1393,7 +1357,7 @@ void Set1Boy30sTiaoShenScore() {
         {
             cout << "100" << endl;
         }
-//    cout << endl;*/
+//    cout << endl;
     }
 }
 
@@ -1410,30 +1374,7 @@ void Set4Girl30sTiaoShenScore()
     {
         cout << it << endl;
     }
-    /* for(auto it = d.begin(); it != d.end(); it++)
-     {
-         if(*it >= 119 && *it < 123)
-         {
-             cout << *it << " " << "70" << endl;
-         } else if(*it >= 123 && *it < 127)
-         {
-             cout << *it << " " << "75" << endl;
-         }else if(*it >= 127 && *it < 131)
-         {
-             cout << *it << " " << "80" << endl;
-         }else if(*it >= 131 && *it < 135)
-         {
-             cout << *it << " " << "85" << endl;
-         }else if(*it >= 135 && *it < 139)
-         {
-             cout << *it << " " << "90" << endl;
-         }else if(*it >= 139 && *it < 143)
-         {
-             cout << *it << " " << "95" << endl;
-         }else if(*it >= 143 )
-         {
-             cout << *it << " " << "100" << endl;
-         } */
+
     cout << "对应的grade" << endl;
     for(int & it : d)
     {
@@ -1464,7 +1405,7 @@ void Set4Boy30sTiaoShenScore() {
         int score = rand() % 13 + 55;//生成伪随机数 55,67
         d.push_back(score);
     }
-//    cout << endl;*/
+//    cout << endl
     for (auto &it : d) {
         cout << it << endl;
     }
@@ -1486,7 +1427,7 @@ void Set4Boy30sTiaoShenScore() {
         {
             cout << "100" << endl;
         }
-//    cout << endl;*/
+//    cout << endl;
     }
 }
 
@@ -1503,30 +1444,7 @@ void Set10Girl30sTiaoShenScore()
     {
         cout << it << endl;
     }
-    /* for(auto it = d.begin(); it != d.end(); it++)
-     {
-         if(*it >= 119 && *it < 123)
-         {
-             cout << *it << " " << "70" << endl;
-         } else if(*it >= 123 && *it < 127)
-         {
-             cout << *it << " " << "75" << endl;
-         }else if(*it >= 127 && *it < 131)
-         {
-             cout << *it << " " << "80" << endl;
-         }else if(*it >= 131 && *it < 135)
-         {
-             cout << *it << " " << "85" << endl;
-         }else if(*it >= 135 && *it < 139)
-         {
-             cout << *it << " " << "90" << endl;
-         }else if(*it >= 139 && *it < 143)
-         {
-             cout << *it << " " << "95" << endl;
-         }else if(*it >= 143 )
-         {
-             cout << *it << " " << "100" << endl;
-         } */
+
     cout << "对应的grade" << endl;
     for(int & it : d)
     {
@@ -1557,7 +1475,7 @@ void Set10Boy30sTiaoShenScore() {
         int score = rand() % 13 + 55;//生成伪随机数 55,67
         d.push_back(score);
     }
-//    cout << endl;*/
+//    cout << endl;
     for (auto &it : d) {
         cout << it << endl;
     }
@@ -1579,7 +1497,7 @@ void Set10Boy30sTiaoShenScore() {
         {
             cout << "100" << endl;
         }
-//    cout << endl;*/
+//    cout << endl;
     }
 }
 
@@ -1596,30 +1514,6 @@ void Set11Girl30sTiaoShenScore()
     {
         cout << it << endl;
     }
-    /* for(auto it = d.begin(); it != d.end(); it++)
-     {
-         if(*it >= 119 && *it < 123)
-         {
-             cout << *it << " " << "70" << endl;
-         } else if(*it >= 123 && *it < 127)
-         {
-             cout << *it << " " << "75" << endl;
-         }else if(*it >= 127 && *it < 131)
-         {
-             cout << *it << " " << "80" << endl;
-         }else if(*it >= 131 && *it < 135)
-         {
-             cout << *it << " " << "85" << endl;
-         }else if(*it >= 135 && *it < 139)
-         {
-             cout << *it << " " << "90" << endl;
-         }else if(*it >= 139 && *it < 143)
-         {
-             cout << *it << " " << "95" << endl;
-         }else if(*it >= 143 )
-         {
-             cout << *it << " " << "100" << endl;
-         } */
     cout << "对应的grade" << endl;
     for(int & it : d)
     {
@@ -1650,7 +1544,7 @@ void Set11Boy30sTiaoShenScore() {
         int score = rand() % 13 + 55;//生成伪随机数 55,67
         d.push_back(score);
     }
-//    cout << endl;*/
+//    cout << endl;
     for (auto &it : d) {
         cout << it << endl;
     }
@@ -1672,7 +1566,7 @@ void Set11Boy30sTiaoShenScore() {
         {
             cout << "100" << endl;
         }
-//    cout << endl;*/
+//    cout << endl;
     }
 }
 
@@ -1712,3 +1606,283 @@ default_random_engine e;
     }
     return 0;
 }
+*/
+
+
+
+//*********sweeper
+/*
+#include <iostream>
+#include <functional>
+#include <memory>
+using namespace std;
+
+class Chassis
+{
+
+};
+
+class Hsm
+{
+public:
+    // 状态机事件参数基类
+    struct StateArgs
+    {
+    };
+    typedef enum _Event
+    {
+        kEvt_None = 0,
+        kEvt_Init,        // 初始化检查，失败则使用备用转移
+        kEvt_Entry,       // 初始化
+        kEvt_Exit,        // 离开
+        kEvt_Update,      // 定期刷新状态
+        kEvt_Suspend,     // 状态机挂起/暂停
+        kEvt_Resume,      // 状态机从挂起恢复
+        kEvt_Cmd,         // 模式切换/手动控制指令
+        kEvt_Collide,     // 不可通行边界，包含碰撞、断崖、磁条虚拟墙
+        kEvt_NearDock,    // 充电座附近，检测到充电座信号
+        kEvt_IrCollide,   // 红外障碍检测
+        kEvt_OutofFence,  // 地图围栏触碰
+        kEvt_Closing,     // 接近障碍物减速
+        kEvt_IrBeacon,    // 充电座发射的红外信标
+        kEvt_AttachPlug,  // 充电口被插入
+        kEvt_AttachDock,  // 接触到充电座
+        kEvt_Malfunction, // 故障信息更新
+        kEvt_Slipping,    // 底盘打滑
+        kEvt_Stall,       // 被困
+        kEvt_GoHome,      // 回充电座请求
+        kEvt_ToIdle,      // 等待时间过长切换到idle模式省电
+        kEvt_Wait,        // 需要停车等待其他外部模块
+        kEvt_AttachDustDisposal,    //触发集尘
+        kEvt_WheelSuspend // 轮子微动开关触发
+    } Event;
+    typedef std::function<Event(Event, const StateArgs *)> EvtHandler;
+public:
+    Hsm(std::string name, Chassis *chassis)
+            : root_(nullptr)
+            , cur_state_(nullptr)
+            , is_suspended_(true)
+            , hsm_tran_(0)
+            , name_(std::move(name))
+            , cha_(chassis)
+            , cur_evt_(kEvt_None)
+            , pending_emergency_()
+            , action_stk_()
+            , pending_stk_(){};
+    ~Hsm() = default;
+
+    // HSM按帧运行
+    virtual void Tick();
+
+protected:
+    class State
+    {
+    public:
+        State() = delete;
+        // 根节点专用构造函数
+        State(Hsm::EvtHandler handler, std::string name)
+                : name_(std::move(name)), handler_(std::move(handler)), level_(0), parent_(nullptr)
+        {
+            need_notify_cur_action_ = []() { return true; };
+        };
+        // 一般节点构造函数
+        State(Hsm::EvtHandler handler, State *parent, std::string name)
+                : name_(std::move(name)), handler_(std::move(handler)), level_(0), parent_(parent)
+        {
+            SetLevel(parent_->GetLevel() + 1);
+            need_notify_cur_action_ = []() { return true; };
+        }
+        ~State() = default;
+
+        // 获取父节点指针
+        State *GetParent() const { return parent_; }
+        // 获取节点的深度
+        uint8_t GetLevel() const { return level_; }
+        // 设置父节点指针
+        void SetParent(State *parent) { parent_ = parent; }
+        // 设置节点的深度
+        void SetLevel(uint8_t new_level)
+        {
+            level_ = new_level;
+            if (level_ >= HSM_MAX_DEPTH) {
+                ctrl_loge("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                ctrl_loge("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                ctrl_loge("level_ larger than HSM_MAX_DEPTH: {}", level_);
+                ctrl_loge("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                ctrl_loge("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                level_ = HSM_MAX_DEPTH;
+            }
+        }
+
+        // 设定这个状态的最后一个动作，一般它完成后表示一个动作循环完成
+        void SetFinalAction(const ActPtr &action) { final_action_ = action; }
+        // 增加一个动作附属于这个状态，便于离开该状态时统一退出所有属于它的动作请求
+        void AddAction(const ActPtr &action) { all_actions_.push_back(action); }
+        // 检查给这个状态设定的最后一个动作，是否已经退出，但不调用终止条件判断
+        bool GetFinalActionHasExit() const
+        {
+            if (!final_action_)
+                return true;
+            return final_action_->HasExit();
+        }
+
+        // 退出states的时候，约定取消所有属于它的动作
+        void CancelAllAction()
+        {
+            for (auto &action : all_actions_)
+                if (action)
+                    action->Cancel();
+            all_actions_.clear();
+        }
+
+        const std::string name_;
+        Hsm::EvtHandler   handler_;
+        std::function<bool()> need_notify_cur_action_;
+
+    protected:
+        uint8_t    level_;
+        State *    parent_;
+        ActPtr              final_action_; // 状态设定的最后一个动作
+        std::vector<ActPtr> all_actions_;  // 在这个状态时添加的所有动作
+    };
+};
+// 25ms执行一次
+void Hsm::Tick()
+{
+    // 状态机输入信号获取
+    std::shared_ptr<StateArgs> evt_args = nullptr;
+    cur_evt_ = FetchEvt(evt_args);// return kEvt_Cmd;
+
+    // 更新动作状态，便于接下来HSM内读取
+    PopCompletedAction();
+
+    // 内部只能调用SetSuspend()
+    Run(cur_evt_, evt_args.get());
+
+    // 状态机挂起不执行后续
+    if (GetSuspend())
+        return;
+
+    // 模式内进度检查
+    if (cur_evt_ != kEvt_Update)
+        Run(kEvt_Update, nullptr);
+
+    PopCompletedAction();
+    NotifyCurAction();
+    FlushPendingAction();
+    ExecAction();
+    PopCompletedAction();
+    FlushPendingAction();
+}
+
+class BvHsm : public Hsm, public BASE_ENUM
+{
+public:
+
+
+};
+
+class DockHsm : public BvHsm
+{
+    typedef enum _Mode
+    {
+
+    }Mode;
+
+    struct DockArgs : Hsm::StateArgs{};
+
+    struct RecoveryArgs : Hsm::StateArgs{};
+    //construct func
+    DockHsm(const std::string &name, Chassis *chassis);
+};
+
+
+
+//运行过程：以回充为例
+//app:cmd回充
+//获取最新的指令 ，得到设备控制枚举类别。判断是new_cmd-->is_cmd_need_handle = true-->\\
+    return kEvt_Cmd  得到当前事件
+    run(控制命令事件kEvt_Cmd){
+        event = state->handler_(event, param);//事件处理程序回调
+    }
+
+Hsm::Event SweeperHsm::DefaultHandler(Event event, const StateArgs *args)
+{
+    switch (event) {
+        case kEvt_Init: {
+            // 跳转到默认子状态
+            Tran(idle_s_, args, nullptr);
+            event = kEvt_None;
+            break;
+        }
+        case kEvt_Cmd:
+            if (HandleCmd(((CmdArgs *)args)->cmd))
+                event = kEvt_None;
+            break;
+
+bool BvHsm::is_cmd_need_handle(std::shared_ptr<StateArgs> &param)
+{
+    if (disable_ctrl_cmd_ && !GetSuspend())
+        return false;
+
+
+    auto cmd_info = cha_->GetLatestCmd("hsm");
+    const auto &new_cmd = cmd_info.cmd;
+}
+Run(kEvt_Cmd, evt_args.get());//控制命令事件
+
+
+
+void BvHsm::Tick()
+{
+
+    Hsm::Tick();
+}
+
+// 底盘状态变化 > 报警状态 > 控制指令 > 暂停 > 碰撞处理 > 打滑 >
+// 低电量请求回充 > 停车等待SLAM计算定位 > 没有意外更新当前状态
+//std::shared_ptr<StateArgs> evt_args = nullptr; FetchEvt(evt_args);
+Hsm::Event BvHsm::FetchEvt(std::shared_ptr<StateArgs> &param)
+{
+    // 3. 控制指令
+    if (is_cmd_need_handle(param))
+        return kEvt_Cmd;
+}//得到当前事件kEvt_Cmd
+bool BvHsm::is_cmd_need_handle(std::shared_ptr<StateArgs> &param)
+{}
+
+Run(cur_evt_, evt_args.get());//Run(kEvt_Cmd, evt_args.get());
+void Hsm::Run(Event event, StateArgs *param)
+
+
+
+
+//获取当前状态
+State *GetState() const override { return root_hsm_->cur_state_; }
+//判断两状态为同一状态
+if (!IsStateAInStateB(GetState(), dock_s_))
+
+//    Qusetion
+//???绑定构造函数  作为参数传入void BvHsm::Tran(State *next_state, const StateArgs *param, const std::function<bool()>& hook) ？？？
+auto towork_hook = std::bind(&SweeperHsm::PrepareToWork, this, GetState(), _1);
+Tran(fold_s_, param.get(), std::bind(towork_hook, fold_s_));
+
+
+Run(kEvt_Cmd, evt_args.get());//控制命令事件
+void Hsm::Run(Event event, StateArgs *param)
+{
+    // This runs the state's event handler and forwards unhandled events to the parent state
+    State *state = cur_state_;
+    while (event && state) {
+        //ctrl_logi("run [{}](evt:{})\r", state->name_, Evt2Str(event));
+
+//        typedef std::function<Event(Event, const StateArgs *)> EvtHandler;
+//       Hsm::EvtHandler   handler_;回调函数，调用相对应的事件处理函数
+        event = state->handler_(event, param);//？？？
+//        回到根状态
+        state = state->GetParent();
+    }
+}
+
+
+ */
