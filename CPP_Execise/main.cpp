@@ -1,6 +1,81 @@
-
+//函数模板
 /*
+#include <iostream>
+using namespace std;
+
+template <typename T> void myswap(T &a, T &b)
+{
+    T t = a;
+    a = b;
+    b = t;
+}
+
+int main()
+{
+    int s = 1;
+    int s2 = 2;
+
+    myswap(s, s2);
+    cout << s << " " << s2 <<endl;
+
+    long a = 2;
+    long b = 3;
+    myswap<long>(a, b);
+    cout << a << " " << b <<endl;
+
+    string m = "aaa";
+    string n = "bbb";
+    myswap<string>(m, n);
+    cout << m << " " << n <<endl;
+
+//    int x = 1;
+//    char y = 2;
+//    myswap(x, y);//类型不匹配error
+//    cout << m << " " << n <<endl;
+
+    return 0;
+}
+ */
+
+//this
+
+#include <iostream>
+#include <utility>
+#include <string>
+using namespace std;
+
+class Student
+{
+public:
+    Student(string name, int age): m_name(std::move(name)), n_age(age){};
+    ~Student() = default;
+    void ShowAge()
+    {
+        cout << "age: " << n_age <<endl;
+        cout << "object address: "<< this <<endl;
+        cout << "age via this: "<< this->n_age <<endl;
+        cout << "name via this: "<< this->m_name <<endl;
+    }
+
+    string m_name;
+    int n_age;
+};
+
+
+int main()
+{
+    Student Mike("Mike", 18);  //init
+    Student Bob("Bob", 20);   //init
+
+    Mike.n_age = 22;
+    Mike.m_name = "sss";  //modify
+    Mike.ShowAge();
+    Bob.ShowAge();
+    return 0;
+}
+
 // bind example
+/*
 #include <iostream>     // std::cout
 #include <functional>   // std::bind
 // using namespace std;
@@ -173,8 +248,8 @@ cout<<"遍历vector";
 // // std::placeholders:_1代表一个占位符，用于回调函数显式的入参；
 
  */
-/*
 
+/*
 #include <iostream>
 #include <functional>
 #include <memory>
@@ -186,7 +261,7 @@ class classA
 using callback_t = std::function<void(int i)> ;
  
 public:
-    classA() {}
+    classA() = default;
     ~classA() {}
     
     void handle(int i)
@@ -207,7 +282,8 @@ class classB
 public:
     classB(classA& cA) 
     {       
-//         cA.registCb([this](int i){classB::handle(i);});
+//         cA.registCb([this](int i){classB::handle(i);});      //lambda
+//         same as follows
 	cA.registCb(std::bind(&classB::handle, this, std::placeholders::_1));
     }
     ~classB() {}
@@ -228,7 +304,7 @@ int main()
 
 // lambda表达式中捕获了classB的this指针
 // 使用std::move的方式保存function对象到classA中
- */
+*/
 /*
 #include <functional>
 #include <iostream>
@@ -310,26 +386,28 @@ int main()
 
 //**************std::shared_ptr<>
 
-
-// shared_ptr::get() example
 #include <iostream>
 #include <memory>
-
-int main ()
+#include <string>
+// shared_ptr::get() example
+/*
+void output(std::string msg, int const* pInt)
 {
-    int* p = new int (10);
-    std::shared_ptr<int> a (p);
-
-    if (a.get()==p)
-        std::cout << "a and p point to the same location\n";
-
-    // three ways of accessing the same address:
-    std::cout << *a.get() << "\n";
-    std::cout << *a << "\n";
-    std::cout << *p << "\n";
-
-    return 0;
+    std::cout << msg << *pInt << " in " << pInt << "\n";
 }
+
+int main()
+{
+    int* pInt = new int(42);
+    std::shared_ptr<int> pShared = std::make_shared<int>(42);
+
+    output("Naked pointer ", pInt);//裸指针
+//     output("Shared pointer ", pShared); // compiler error
+    output("Shared pointer with get() ", pShared.get());
+
+    delete pInt;
+}
+*/
 
 //bubblesort
 /*
@@ -1884,5 +1962,4 @@ void Hsm::Run(Event event, StateArgs *param)
     }
 }
 
-
- */
+*/
