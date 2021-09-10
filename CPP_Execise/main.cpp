@@ -38,9 +38,8 @@ int main()
  */
 
 //this
-
+/*
 #include <iostream>
-#include <utility>
 #include <string>
 using namespace std;
 
@@ -51,8 +50,8 @@ public:
     ~Student() = default;
     void ShowAge()
     {
-        cout << "age: " << n_age <<endl;
-        cout << "object address: "<< this <<endl;
+
+        cout << "this: "<< this <<endl;
         cout << "age via this: "<< this->n_age <<endl;
         cout << "name via this: "<< this->m_name <<endl;
     }
@@ -67,12 +66,78 @@ int main()
     Student Mike("Mike", 18);  //init
     Student Bob("Bob", 20);   //init
 
-    Mike.n_age = 22;
-    Mike.m_name = "sss";  //modify
+//    Mike.n_age = 22;
+//    Mike.m_name = "sss";  //modify
+    cout << "memory addr. of object Mike: " << &Mike << endl;
     Mike.ShowAge();
+    cout << "memory addr. of object Bob: " << &Bob << endl;
     Bob.ShowAge();
     return 0;
 }
+*/
+
+//内存的开辟，类型占用的大小字节
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    int a = 10;  //占用4字节Byte
+    int b = 22;
+    char c = 'a';
+
+    cout << "addr. a: " << &a ;
+    cout << "int字节数" << sizeof(a) << endl;
+    cout << "addr. b: " << &b << endl;
+    cout << "char字节数" << sizeof(char) << endl;
+    cout << "addr. c: " << &c << endl;
+    printf("char c address: %p\n", &c);
+
+    return 0;
+}
+*/
+//lambda f = [catpured= & this](函数参数列表)mutable throw(类型) ->返回值类型 {函数语句};
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    int x = 1;
+    int y = 1;
+    int z;
+    cout << "初始x: " << x << " 初始y: " << y <<endl;
+
+    cout << "&变量以引用传递的方式被捕获" << endl;
+    z = [&x, &y] () mutable -> int { int n = x + y;
+    ++x;
+    ++y;
+    cout << "xneibu=" << x << " yneibu=" << y <<endl;
+    return n;
+    }();
+    cout << "xwaibu=" << x << " y-waibu=" << y <<endl;
+    cout << "z=" << z <<endl;
+
+    cout << "初始x: " << x << " 初始y: " << y <<endl;
+    cout << "=变量以值传递的方式被捕获" << endl;
+    z = [=] () mutable -> int { int n = x + y;
+    ++x;
+    ++y;
+    cout << "xneibu=" << x << " yneibu=" << y <<endl;
+    return n;
+    }();
+    cout << "xwaibu=" << x << " y-waibu=" << y <<endl;
+    cout << "z=" << z <<endl;
+
+
+    return 0;
+}//mutable 在lambda内部改变值，这种改变不能传递到外部
+
+*/
+
+
 
 // bind example
 /*
