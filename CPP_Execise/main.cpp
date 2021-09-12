@@ -1,3 +1,78 @@
+//函数
+
+#include <iostream>
+using namespace std;
+
+//95函数默认参数(某个位置及以后的参数都必须有默认值)1、声明和实现只能一个有默认参数。
+int AddFun(int a, int b = 20, int c = 30)
+{
+    return a + b + c;
+}
+//96 函数占位参数(也可以带默认参数)
+void func(int a, int = 10)
+{
+    cout << "call func" << endl;
+}
+//97 函数重载（条件：1、同一个作用域下2、函数名同3、函数参数类型，个数，顺序不同）
+void funcOverload()
+{
+    cout << "call func" << endl;
+}
+void funcOverload(double a, int b)
+{
+    cout << "call func(double a, int b)" << endl;
+}
+void funcOverload(int a)
+{
+    cout << "call func(int a)" << endl;
+}
+
+//98 函数重载注意事项（1、引用作为重载的条件2、碰到默认参数）
+void funcRef(int &a)
+{
+    cout << "call funcRef(int &a)" << endl;
+}
+void funcRef(const int &a)
+{
+    cout << "call funcRef(const int &a)" << endl;
+}
+//2、碰到默认参数
+void func2(int a)
+{
+    cout << "call func2(int a)" << endl;
+}
+
+void func2(int a, int b = 10)
+{
+    cout << "call func2(int a)" << endl;
+}
+
+int main()
+{
+//    p95
+    int x = 1;
+    int y = 2;
+    int z = 3;
+    int sum = AddFun(x, y, z);
+    cout << "sum= " << sum << endl;
+
+    cout << "use 2 default parameter sum= " << AddFun(10) << endl;
+    cout << "overwrite default parameter sum= " << AddFun(10, 11, 12) << endl;
+//96
+    func(x);
+//    97
+    funcOverload();
+    funcOverload(x);
+    funcOverload(3.14, y);
+//    98
+    funcRef(x);
+    funcRef(10);
+//    func2(10);  //error
+
+
+    return 0;
+}
+
 //函数模板
 /*
 #include <iostream>
