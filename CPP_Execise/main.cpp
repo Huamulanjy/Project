@@ -99,7 +99,7 @@ int main()
 }
 */
 //lambda f = [catpured= & this](函数参数列表)mutable throw(类型) ->返回值类型 {函数语句};
-#include <iostream>
+/*#include <iostream>
 #include <string>
 using namespace std;
 
@@ -136,8 +136,6 @@ int main()
 }//mutable 在lambda内部改变值，这种改变不能传递到外部
 
 */
-
-
 
 // bind example
 /*
@@ -450,12 +448,11 @@ int main()
 */
 
 //**************std::shared_ptr<>
-
+/*
+  // shared_ptr::get() example
 #include <iostream>
 #include <memory>
 #include <string>
-// shared_ptr::get() example
-/*
 void output(std::string msg, int const* pInt)
 {
     std::cout << msg << *pInt << " in " << pInt << "\n";
@@ -521,7 +518,107 @@ int main()
   return 0;
 }*/
 
+//引用  数据类型 &别名 = 原名.  本质：操作同一块内存. ==指针常量
+/*
+#include <iostream>
+using namespace std;
 
+//swap func  值传递：！！！形参不会修饰实参
+void MySwapzhi(int a, int b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+}
+//形参会修饰实参
+void MySwapPoint(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+//形参会修饰实参
+void MySwapUseyinyong(int &a, int &b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+//    p92 引用做函数返回值（1、不要返回局部变量的引用 2、函数的调用可以作为左值）
+//int& test01()
+//{
+//    int a = 10;//in satck在该函数执行完后 内存就释放掉了
+//    return a;
+//}
+//2、函数的调用可以作为左值）
+int& test02()
+{
+    static int a = 20;//a是静态变量，存放在全局区，全局去的数据在程序结束后系统释放
+    return a;
+}
+
+//p94
+void ShowValueNotModify(const int &val)
+{
+//    val = 3000;
+    cout << "val = " << val << endl;
+}
+int main()
+{
+//    p89
+    int a = 10;
+    int c = 20;
+    int &b = a;
+
+    cout << "addr. a=" << &a << "   a=" << a << endl;
+    cout << "addr. b=" << &b << "   b=" << b << endl;
+
+    b = 100;//通过引用修改原变量
+    cout << "addr. a=" << &a << "   a=" << a << endl;
+    cout << "addr. b=" << &b << "   b=" << b << endl;
+//    p90 引用必须初始化； 之后不可改变。本质是类似于指针常量，指向不可改变
+//    p91 引用做函数参数（让形参修饰实参，可以简化指针修改实参）
+    cout << "值传递" << endl;
+    cout << "origin a " << a << "  origin c= " << c << endl;
+    MySwapzhi(a, c);
+    cout << "a " << a << "  c= " << c << "!!!swap failed" << endl;
+
+    cout << "地址传递" << endl;
+    cout << "origin a " << a << "  origin c= " << c << endl;
+    MySwapPoint(&a, &c);
+    cout << "a " << a << "  c= " << c << "swap success" << endl;
+
+    cout << "引用传递" << endl;
+    cout << "origin a " << a << "  origin c= " << c << endl;
+    MySwapUseyinyong(a, c);
+    cout << "a " << a << "  c= " << c << "swap success" << endl;
+
+//    p92 引用做函数返回值（1、不要返回局部变量的引用 2、函数的调用可以作为左值）
+//    int &ref = test01();
+//    cout << "ref= " << ref << endl;
+//    cout << "ref= " << ref << endl;
+         int &ref2 = test02();
+    cout << "ref2= " << ref2 << endl;
+    cout << "ref2= " << ref2 << endl;
+//    2、函数的调用可以作为左值
+    test02() = 1000;
+
+    cout << "ref2= " << ref2 << endl;
+    cout << "ref2= " << ref2 << endl;
+
+//    p93引用的本质：是一个指针常量。也就是为什么引用不可更改
+    int &refer = a;//== int * const refer = &a;
+//    p94 常量引用：用来修饰形参，防止误操作改变数据。相当于常量指针。
+    const int & ref = 10;//引用必须引一块合法的内存空间
+//    use const ==
+//    int temp = 10; const int & ref = temp;
+    ShowValueNotModify(a);
+
+    return 0;
+}
+
+ */
 //****************vector************
 /*
 #include <iostream>
@@ -1308,9 +1405,8 @@ int main()
 
 
 
-//程序的内存模型：代码区、全局区（全局变量、静态变量、常量--字符串常量，const全局变量）； 栈区（局部变量，不要返回局部变量的地址！！！）
-//、堆区
-/*
+//程序的内存模型：代码区、全局区（全局变量、静态变量、常量--字符串常量，const全局变量）； 栈区（局部变量，不要返回局部变量的地址！！！）、堆区
+ /*
 #include <iostream>
 using namespace std;
 int* fun()
