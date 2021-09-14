@@ -1,5 +1,5 @@
 //函数
-
+/*
 #include <iostream>
 using namespace std;
 
@@ -72,7 +72,7 @@ int main()
 
     return 0;
 }
-
+*/
 //函数模板
 /*
 #include <iostream>
@@ -111,12 +111,198 @@ int main()
     return 0;
 }
  */
-
-//this
+//class object 1、封装（属性和行为、权限控制）2、继承 3、多态
 /*
 #include <iostream>
 #include <string>
 using namespace std;
+
+const double PI = 3.14;
+
+class Circle
+{
+public:
+    int m_r;
+//    double
+    double CalculateZhouChang()
+    {
+        return 2 * PI * m_r;
+    }
+};
+class Student
+{
+public:
+    void ShowStudent()
+    {
+        cout << "name: " << stu_name << "  ID: "<< stu_id << endl;
+    }
+
+    void AccessInClass()
+    {
+        stu_name = "sam";
+        m_car = "lex";
+        m_password = 1234;
+    }
+public:
+    string stu_name;
+    int stu_id;
+protected:
+    string m_car;
+private:
+    int m_password;
+};
+class Cube
+{
+public:
+    void SetData(int len, int wid, int height)
+    {
+        m_L = len;
+        m_W = wid;
+        m_H = height;
+    }
+    int GetLength()
+    {
+        return m_L;
+    }
+    int GetWidth()
+    {
+        return m_W;
+    }
+    int GetHeight()
+    {
+        return m_H;
+    }
+    int GetArea()
+    {
+        return 2 * (m_L * m_H + m_L * m_W + m_H * m_W);
+    }
+    int GetVolume()
+    {
+        return m_W * m_H * m_L;
+    }
+    bool IsSameInClass(Cube &c)
+    {
+        return m_L == c.GetLength() && m_H == c.GetHeight() && m_W == c.GetWidth();
+    }
+private:
+    int m_L;
+    int m_W;
+    int m_H;
+
+};
+
+bool IsSameCube(Cube &c1, Cube &c2)
+{
+    return c1.GetLength() == c2.GetLength() && c1.GetWidth() == c2.GetWidth() && c1.GetHeight() == c2.GetHeight();
+}
+
+int main()
+{
+    //Instance  实例化，由类创建一个对象
+    Circle cir1{};
+    cir1.m_r = 10;
+    cout << "zhouchang= " << cir1.CalculateZhouChang() <<endl;
+
+    Student s1;
+    s1.stu_name = "Tom";
+    s1.stu_id = 118;
+    s1.ShowStudent();
+
+    Student stu2;
+    stu2.stu_name = "bob";
+//    stu2.m_car = "benchi"; //cannot access
+    s1.ShowStudent();
+
+    Cube c1{};
+    c1.SetData(10, 10, 10);
+    cout << "area: " << c1.GetArea() << endl;
+    cout << "volume: " << c1.GetVolume() << endl;
+    Cube c2;
+    c2.SetData(10, 20,10);
+    bool ret = IsSameCube(c1,c2);
+    if(ret)
+    {
+        cout << "same cube" << endl;
+    }else{
+        cout << "not same" << endl;
+    }
+    bool ret2 = c1.IsSameInClass(c2);
+    if(ret2)
+    {
+        cout << "m_fun same cube" << endl;
+    }else{
+        cout << "m_fun not same" << endl;
+    }
+    return 0;
+}
+ */
+//构造函数的分类和调用。有参构造和无参数默认构造；普通构造和拷贝构造。调用1、括号法2、显示法3、隐式转换法
+/*
+#include <iostream>
+using namespace std;
+class Person
+{
+public:
+    Person()
+    {
+        cout << "call Person default constructor fun " << endl;
+    }
+    explicit Person(int a)
+    {
+        age = a;
+        cout << "call Person constructor fun " << endl;
+    }
+//    拷贝构造函数
+    Person(const Person &p)
+    {
+        age = p.age;
+        cout << "copy constructor " << endl;
+    }
+
+    ~Person()
+    {
+        cout << "call Person destructor fun " << endl;
+    }
+
+//private:
+    int age;
+};
+
+void CallConstruc()
+{
+//    括号法
+    Person p;    //default. 注意：不加（）
+    Person p2(10); //有参数
+    Person p3(p2); //copy
+
+//    cout << "p2 age: " << p2.age << endl;
+//    cout << "p3 age: " << p3.age << endl;
+//    显示法
+    Person p4;    //default
+    Person p5 = Person(10); //有参数
+    Person p6 = Person(p2); //copy
+//    Person(10) 是创建的匿名对象。特点：当前行执行万后，系统立即回收掉匿名对象
+//注意2、不要利用拷贝构造函数初始化匿名对象。因为编译器会认为Person(p3) == Person p3;redecl
+//    Person(p3);
+
+//    隐士转换法
+//    Person p7 = 10;
+//    Person p8 = p4;
+}
+
+int main()
+{
+    CallConstruc();
+    return 0;
+}
+*/
+
+//this 1、当形参和数据成员同名时，区分 2、非静态成员函数返回对象本身return *this
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+
 
 class Student
 {
@@ -131,6 +317,7 @@ public:
         cout << "name via this: "<< this->m_name <<endl;
     }
 
+public:
     string m_name;
     int n_age;
 };
@@ -692,7 +879,59 @@ int main()
 
     return 0;
 }
+*/
+//8.5 cubes.cpp  函数的形参尽可能只用常引用（理由：1、防修改数据2、接受const和非const实参3、临时变量）
+/*
+#include <iostream>
+using namespace std;
 
+double cube(double a)
+{
+    a *= a * a;
+    return a;
+}
+
+double RefCube(double &ra)
+{
+    ra *= ra * ra;
+    return ra;
+}
+
+//double RefCube1(const double &ra)
+//{
+//    ra *= ra * ra;   //ra  x 不允许被修改
+//    return ra;
+//}
+//
+ double RefCube2(const double &ra)
+{
+    return ra * ra * ra;
+}
+
+void Swapr(int &a, int &b)
+{
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+int main()
+{
+    double x = 3.0;
+    cout << cube(x) ;
+    cout << " = cube of " << x << endl;
+    cout << RefCube(x) ;
+    cout << " = cube of " << x << "   x==ra, x changed"<< endl;
+
+    long m = 3;
+    long n = 5;
+//    Swapr(m, n);
+
+    return 0;
+}
+
+
+//TODO: 右值引用。实现移动语义
  */
 //****************vector************
 /*
