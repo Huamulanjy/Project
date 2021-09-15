@@ -1,7 +1,7 @@
-/home/lhj/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/install/strip.dir
-/home/lhj/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/lhj/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/cpp_execise.dir
-/home/lhj/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/lhj/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/list_install_components.dir
-/home/lhj/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/install/local.dir
-/home/lhj/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/install.dir
+/home/local/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/install/strip.dir
+/home/local/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/local/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/cpp_execise.dir
+/home/local/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/local/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/list_install_components.dir
+/home/local/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/install/local.dir
+/home/local/projects/test/CPP_Execise/cmake-build-debug/CMakeFiles/install.dir

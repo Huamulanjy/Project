@@ -541,6 +541,38 @@ cout<<"遍历vector";
     return 0;
 }*/
 
+//********C++17*****optional，C++ 的函数如何返回多个值？
+
+/*
+
+#include <iostream>
+//TODO:add c++17
+//#include <optional>
+
+using namespace std;
+
+struct Out {
+    string out1 { "" };
+    string out2 { "" };
+};
+
+boost::optional<Out> func(const string& in) {
+    Out o;
+    if (in.size() == 0)
+        return nullopt;
+    o.out1 = "hello";
+    o.out2 = "world";
+    return { o };
+}
+
+int main() {
+    if (auto ret = func("hi"); ret.has_value()) {
+        cout << ret->out1 << endl;
+        cout << ret->out2 << endl;
+    }
+    return 0;
+}
+ */
 //*************functional
 /*
 // 3.1 使用std::bind()和std::function来实现
