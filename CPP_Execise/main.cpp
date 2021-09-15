@@ -934,6 +934,7 @@ int main()
 //TODO: 右值引用。实现移动语义
  */
 //8.6 structref.cpp  2、为何返回引用？--》避免了将结构或对象复制到一个临时的位置，节省时间和内存。3、不要返回局部变量的引用。4、将const用于引用返回类型:防止赋值等修改数据操作
+/*
 #include <iostream>
 #include <string>
 using namespace std;
@@ -941,9 +942,9 @@ using namespace std;
 struct free_throws
 {
     std::string name;
-    int made{};
-    float attempts{};
-    float percent{};
+    int made;
+    float attempts;
+    float percent;
 };
 
 void Display(const free_throws & ft)
@@ -1004,6 +1005,58 @@ int main()
     accumulate(dup, five) = four;
     cout << "displaying duq after ill-advised assigment" << endl;
     Display(dup);
+
+    return 0;
+}
+*/
+//8.7 strquote.cpp 引用用于类对象。1、函数形参多用引用传入对象本体，高效，加const表示不可修改传入对象的数据 2、实参形参类型不匹配：程序创建正确的临时变量，用转换后的实参值初始化临时量，然后传递一个指向该变量的引用
+#include <iostream>
+#include <string>
+using namespace std;
+
+std::string version1(const string & s1, const string & s2)
+{
+    string temp;
+    temp = s2 + s1 + s2;
+    return temp;
+}
+
+const string & version2HasSideEffe(string & s1, const string & s2)
+{
+    s1 = s2 + s1 + s2;
+    return s1;    //s1不是临时变量，将s1作为引用返回是安全的。
+}
+
+const string & version3Bad(string & s1, const string & s2)
+{
+    string temp;
+    temp = s2 + s1 + s2;
+    return temp;     //不能返回局部变量的引用！！！
+}
+
+int main()
+{
+    string input;
+    string copy;
+    string result;
+
+    cout << "enter a string: " ;
+    getline(cin, input);
+    copy = input;
+    cout << "your str as entered: " << input << endl;
+    result = version1(input, "***");
+    cout << "your str enhanced: " << result << endl;
+    cout << "original str: " << input << endl;
+
+    result = version2HasSideEffe(input, "###");  //引用传入，则直接修改的是input本身， string & s1 = input  s1是input的引用。 s1和input操作同一块内存
+    cout << "your str enhanced: " << result << endl;
+    cout << "original str: " << input << endl;
+
+//    cout << "resetting original str\n";
+//    input = copy;
+////    result = version3Bad(input, "@@@");      //调用函数结束，临时变量temp内存被释放。 程序试图引用已经释放的内存空间，崩溃！！！
+//    cout << "your str enhanced: " << result << endl;
+//    cout << "original str: " << input << endl;
 
     return 0;
 }
