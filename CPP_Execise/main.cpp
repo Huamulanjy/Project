@@ -1010,7 +1010,7 @@ int main()
 }
 */
 //8.7 strquote.cpp 引用用于类对象。1、函数形参多用引用传入对象本体，高效，加const表示不可修改传入对象的数据 2、实参形参类型不匹配：程序创建正确的临时变量，用转换后的实参值初始化临时量，然后传递一个指向该变量的引用
-#include <iostream>
+/*#include <iostream>
 #include <string>
 using namespace std;
 
@@ -1060,7 +1060,65 @@ int main()
 
     return 0;
 }
+ */
+//8.8 filefunc,cpp 对象、继承和引用 1、函数的一个形参定义为基类引用类型，调用该函数时，实参可以为基类对象也可以是派生类对象。因为继承的一个特性： 基类引用可以指向派生类对象，而无需进行强制类型转换。
+/*
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+using namespace std;
+const int LIMIT = 5;
 
+void file_it(ostream & os, double fo, const double fe[], int n)
+{
+    ios_base::fmtflags initial;
+    initial = os.setf(ios_base::fixed);//
+    os.precision(0);
+    os << "focal length of objective: " << fo << "mm\n";
+    os.setf(ios::showpoint);
+    os.precision(1);
+    os.width(12);
+    os << "f.1 eyepiece";
+    os.width(15);
+    os << "magnification" << endl;
+    for(int i = 0; i < n; i++)
+    {
+        os.width(12);
+        os << fe[i];
+        os.width(15);
+        os << int(fo/fe[i] + 0.5) << endl;
+    }
+    os.setf(initial); //restore
+}
+
+int main()
+{
+    ofstream fout;
+    const char * fn = "ep-data.txt";
+    fout.open(fn);
+    if (!fout.is_open())
+    {
+        cout << "Can't open " << fn << ". Bye.\n";
+        exit(EXIT_FAILURE);
+    }
+    double objective;
+    cout << "enter the focal length of your"
+            "telescope objective in mm";
+    cin >> objective;
+    double eps[LIMIT];
+    cout << "enter the focal length, in mm, of " << LIMIT
+        <<" eyepiece:\n";
+    for (int i = 0; i < LIMIT; i++)
+    {
+        cout << "Eyepiece #" << i+1 << ":";
+        cin >> eps[i];
+    }
+    file_it(fout, objective, eps, LIMIT);
+    file_it(cout, objective, eps, LIMIT);
+    cout << "Done\n";
+    return 0;
+}
+ */
 //****************vector************
 /*
 #include <iostream>
