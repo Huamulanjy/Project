@@ -456,7 +456,7 @@ public:
 //             , angle(angle)
 //             , angle_mode(angle_mode)
 //             , need_fadeout(need_fadeout){};
-// 
+//
 //         float     linear_vel;   // 米/秒，最大线速度，不可为负
 //         float     distance;     // 米，移动距离，正为前进，负为倒车
 //         float     angle;        // 弧度，直行过程需要维持的角度，正为逆时针，负为顺时针
@@ -466,9 +466,9 @@ public:
 
 /*     ActMove(const std::string &name, Chassis *chassis, const ActionArgs *arg);
     ActMove(){};
-//     kMinTimeoutMs(kMinTimeoutMs), 
-//     kLinearAlpha(kLinearAlpha), 
-//     kLinearVelLim(kLinearVelLim), 
+//     kMinTimeoutMs(kMinTimeoutMs),
+//     kLinearAlpha(kLinearAlpha),
+//     kLinearVelLim(kLinearVelLim),
 //     kAngularAlpha(kAngularAlpha),
 //     kAngularVelLim(kAngularVelLim){}
 //     void SetTarget(const ActionArgs *arg);
@@ -499,11 +499,11 @@ int main () {
 
 //   ActMove * actptr;
   ActMove move;
-//   int16_t tmp = 
+//   int16_t tmp =
   move.kLinearAlpha = 6;
   cout<<move.kMinTimeoutMs<<endl;
   cout<<move.kLinearAlpha<<endl;
-  
+
 //   cout<< actpt
   return 0;
 }*/
@@ -517,7 +517,7 @@ int main()
   std::vector<int> myvect;
   for(int i = 1; i < 9; i++)
     myvect.push_back(i);
-  
+
 cout<<"遍历vector";
 //   1
   cout<<endl<<"method1:use .at     myvect: ";
@@ -536,43 +536,11 @@ cout<<"遍历vector";
   cout<<endl<<"method3:use for(auto &:)  myvect: ";
   for(auto &b:myvect)
     cout<<b<<" ";
-    
+
 
     return 0;
 }*/
 
-//********C++17*****optional，C++ 的函数如何返回多个值？
-
-/*
-
-#include <iostream>
-//TODO:add c++17
-//#include <optional>
-
-using namespace std;
-
-struct Out {
-    string out1 { "" };
-    string out2 { "" };
-};
-
-boost::optional<Out> func(const string& in) {
-    Out o;
-    if (in.size() == 0)
-        return nullopt;
-    o.out1 = "hello";
-    o.out2 = "world";
-    return { o };
-}
-
-int main() {
-    if (auto ret = func("hi"); ret.has_value()) {
-        cout << ret->out1 << endl;
-        cout << ret->out2 << endl;
-    }
-    return 0;
-}
- */
 //*************functional
 /*
 // 3.1 使用std::bind()和std::function来实现
@@ -585,19 +553,19 @@ int main() {
 // class classA
 // {
 //   typedef std::function<void(int i)> callback_t;
-// 
+//
 //     void registCb(callback_t func)
 //     {cbHandle = std::move(func);}
 // private:
 //     callback_t cbHandle;
 // };
 // // 另一个类classB需要注册自己的一个成员函数作为回调函数到classA中，这里就可以使用std::bind函数来实现，
-// 
+//
 // class classB
 // {
 // public:
-//     classB(classA& cA) 
-//     {       
+//     classB(classA& cA)
+//     {
 //         cA.registCb(std::bind(&classB::handle, this, std::placeholders::_1));
 //     }
 // };
@@ -610,52 +578,52 @@ int main() {
 #include <iostream>
 #include <functional>
 #include <memory>
- 
+
 class classA
 {
 // typedef std::function<void(int i)> callback_t;
 // same as:
 using callback_t = std::function<void(int i)> ;
- 
+
 public:
     classA() = default;
     ~classA() {}
-    
+
     void handle(int i)
     {
         std::cout << "classA::handle" << std::endl;
-        
+
         cbHandle(i);
     }
- 
+
     void registCb(callback_t func)
     {cbHandle = std::move(func);}
 private:
     callback_t cbHandle;
 };
- 
+
 class classB
 {
 public:
-    classB(classA& cA) 
-    {       
+    classB(classA& cA)
+    {
 //         cA.registCb([this](int i){classB::handle(i);});      //lambda
 //         same as follows
 	cA.registCb(std::bind(&classB::handle, this, std::placeholders::_1));
     }
     ~classB() {}
-    
+
     void handle(int i)
     {
         std::cout << "classB, handle message" << i << std::endl;
     }
 };
- 
+
 int main()
 {
     classA testa;
     classB testb(testa);
- 
+
     testa.handle(10);
 }
 
@@ -785,7 +753,7 @@ void bubblesort(int *arr, int length)
       }
     }
   }
- return; 
+ return;
 }
 
 void printarry(int *arr, int length)
@@ -801,14 +769,14 @@ int main()
 {
   int a[] = {2,3,4,5,6,7,8};
   int len = sizeof(a)/sizeof(a[0]);
-  
+
   cout<<"origin arry: ";
   printarry(a, len);
   bubblesort(a, len);
   cout<<endl;
   cout<<"bubblesort arry: ";
   printarry(a, len);
-  
+
   return 0;
 }*/
 
@@ -965,6 +933,81 @@ int main()
 
 //TODO: 右值引用。实现移动语义
  */
+//8.6 structref.cpp  2、为何返回引用？--》避免了将结构或对象复制到一个临时的位置，节省时间和内存。3、不要返回局部变量的引用。4、将const用于引用返回类型:防止赋值等修改数据操作
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct free_throws
+{
+    std::string name;
+    int made{};
+    float attempts{};
+    float percent{};
+};
+
+void Display(const free_throws & ft)
+{
+    cout << "Name: " << ft.name << '\n';
+    cout << "Made: " << ft.made << '\t';
+    cout << "Attempt: " << ft.attempts << '\t';
+    cout << "Percent: " << ft.percent << '\n';
+}
+
+void set_pc(free_throws & ft)
+{
+    if (ft.attempts != 0)
+        ft.percent = 100.0f * float(ft.made) / float(ft.attempts);
+    else
+        ft.percent = 0;
+
+}
+
+free_throws & accumulate(free_throws &target, const free_throws &source)   //来源数据不能被改变，用const修饰
+{
+    target.attempts += source.attempts;
+    target.made += source.made;
+    set_pc(target);
+    return  target;//返回引用
+}
+
+int main()
+{
+    free_throws one = {"IB", 13, 14};
+    free_throws two = {"AK", 10, 16};
+    free_throws three = {"MM", 7, 9};
+    free_throws four = {"ML", 5, 9};
+    free_throws five = {"LL", 6, 14};
+    free_throws team = {"ThrowGoods", 0 , 0};
+
+    free_throws dup;
+
+    set_pc(one);
+    Display(one);
+    accumulate(team, one);
+    Display(team);
+
+    Display(accumulate(team, two));
+    accumulate(accumulate(team, three), four);
+    Display(team);
+
+    dup = accumulate(team, five);
+
+    cout << "Displaying team: \n";
+    Display(team);
+
+    cout << "displaying duq after assignment:\n";
+    Display(dup);
+    set_pc(four);
+
+    //ill-advised assigment  病态的分配
+    accumulate(dup, five) = four;
+    cout << "displaying duq after ill-advised assigment" << endl;
+    Display(dup);
+
+    return 0;
+}
+
 //****************vector************
 /*
 #include <iostream>
@@ -2193,7 +2236,38 @@ default_random_engine e;
 }
 */
 
+//********C++17*****optional，C++ 的函数如何返回多个值？
 
+/*
+
+#include <iostream>
+//TODO:add c++17
+//#include <optional>
+
+using namespace std;
+
+struct Out {
+    string out1 { "" };
+    string out2 { "" };
+};
+
+boost::optional<Out> func(const string& in) {
+    Out o;
+    if (in.size() == 0)
+        return nullopt;
+    o.out1 = "hello";
+    o.out2 = "world";
+    return { o };
+}
+
+int main() {
+    if (auto ret = func("hi"); ret.has_value()) {
+        cout << ret->out1 << endl;
+        cout << ret->out2 << endl;
+    }
+    return 0;
+}
+ */
 
 //*********sweeper
 /*
