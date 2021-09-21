@@ -359,6 +359,79 @@ int main()
     此时该枚举定义为  enum class egg {Small Large}  or enum struct t_shirt {Small Large}
      使用时：   egg choice = egg::Small;
                 t_shirt shirt = t_shirt::Small;*/
+//三、拷贝构造函数：将一个对象复制到新创建的对象中 原型为Class_name(const Class_name &);
+/*必须定义拷贝构造函数的原因：一些类成员是使用初始化的、是指向数据的指针，而不是数据本身
+Point-1 何时调用拷贝构造函数：1、每当程序生成了对象副本时，调用拷贝构造函数；2、当函数按值传递对象或者返回对象时，调用；3、当编译器生成临时对象时,调用
+        按值传递对象会调用拷贝，因此应该使用按引用传递，好处是按引用传递可以节省调用时间和储存新对象的空间
+Point-2 有什么作用？
+        1、浅拷贝
+            默认的拷贝构造函数逐个复制非静态成员的值，即成员复制。 另外new初始化的指针成员，仅仅复制指针信息，而不是指针指向的数据。
+        2、深拷贝
+            拷贝构造函数应当复制字符串并将副本的地址赋给类指针成员，而不仅仅是复制字符串地址。另外new初始化的指针成员，拷贝构造以复制指向的数据，而不是指针。
+四、赋值运算符 --重载
+    原型为： StringBad & StringBad::operator=(const StringBad &);   完成深拷贝
+
+ */
+ //12.(1.2.3)
+#include <iostream>
+#include "strngbad.h"
+using namespace std;
+
+void callme1(StringBad &);
+void callme2(StringBad);
+
+int main()
+{
+    using std::endl;
+    {
+       cout << "starting an inner block.\n";
+       StringBad headline1("C S M");  //obj：1headline1: "C S M"
+       StringBad headline2("L P");              //obj2：headline2: "L P"
+       StringBad sports("S L B for D");         //obj3：sports:"S L B for D"
+       cout << "headline1: " << headline1 << endl;     //输出对象 重载<<
+       cout << "headline2: " << headline2 << endl;
+       cout << "sports: " << sports << endl;
+        cout << endl;
+
+       callme1(headline1);   //note1  实参通过引用传递。不会生成新对象
+        cout << "headline1: " << headline1 << endl;
+        cout << endl;
+
+        callme2(headline2);     //note2   实参通过值传递：会通过拷贝构造先创建新的临时匿名对象obj4“L P”   执行完这行释放临时对象
+        cout << "headline2: " << headline2 << endl;
+        cout << endl;
+
+        cout << "Initialize one object to another:\n";
+        StringBad sailor = sports;      //note3   通过拷贝构造创建新对象obj4：sailor: "S L B for D"
+        cout << "sailor: " << sailor << endl;
+        cout << endl;
+
+        cout << "Assign one object to another:\n";
+        StringBad knot;                 //note4   调用默认构造函数创建对象 == obj5：knot："c++"
+        int i = 10; //常规=
+        knot = headline1;               //note5赋值运算符:重载=  利用赋值运算符给对象赋值。 now: obj5 knot:"C S M"
+        //this=&knot
+        cout << "knot: " << knot << endl;
+        cout << "Exiting the block.\n";
+    }
+    cout << "End of main()\n";
+    return 0;
+}
+
+void callme1(StringBad &rsb)
+{
+    cout << "string passed by reference:\n";
+    cout << "    \"" << rsb << "\"\n";
+}
+
+void callme2(StringBad sb)   //通过值传递 会调用拷贝构造函数生成临时匿名对象
+{
+    cout << "string passed by value:\n";
+    cout << "    \"" << sb << "\"\n";
+}
+
+
+
 //内存的开辟，类型占用的大小字节
 /*
 #include <iostream>
