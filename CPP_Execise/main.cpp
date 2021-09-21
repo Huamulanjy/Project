@@ -73,7 +73,18 @@ int main()
     return 0;
 }
 */
-//函数模板
+//函数模板1、隐式实例化、显示实例化Swap<int>;
+// 2、编译器使用函数模板为特定类型生成函数定义时，得到了模板实例。编译器选择使用哪个函数版本的过程称为重载解析。
+//重载解析寻找最具体、匹配的函数--部分排序规则：非模板函数》更具体的模板函数》
+//3、关键字：decltype---- decltype(x)  y//使得y和x同类型
+// decltype(expression)  var
+// decltype((call_func))  var  var与函数返回类型相同
+//4、后置返回类型
+/*template<class T1, class T2>
+//   auto funcname(T1 x, T2 y) -> decltype(x+y)
+//{
+//    return x + y;
+//}
 /*
 #include <iostream>
 using namespace std;
