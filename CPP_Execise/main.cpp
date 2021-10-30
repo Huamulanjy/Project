@@ -73,13 +73,38 @@ int main()
     return 0;
 }
 */
-//函数模板1、隐式实例化、显示实例化Swap<int>;
+#include <cmath>
+
+//函数模板1、隐式实例化、显示实例化前缀templete、显示具体化templete< >;
+/*
+在声明中使用前缀templete  templete< >，以区分显示实例化和显示具体化
+template <class T>
+void Swap(T &, T &); //templete prototype
+
+
+template < > void Swap<double>(double &, double &);//显式具体化job
+
+int main()
+{
+    template void Swap<char>(char &, char &);//显式实例化char
+
+    short a, b;
+    Swap(a,b);//隐士模板实例化short
+
+    double n;
+    double m;
+    Swap(n,m);//显式具体化
+
+    char g, h;
+    Swap(g,h);
+}
 // 2、编译器使用函数模板为特定类型生成函数定义时，得到了模板实例。编译器选择使用哪个函数版本的过程称为重载解析。
 //重载解析寻找最具体、匹配的函数--部分排序规则：非模板函数》更具体的模板函数》
 //3、关键字：decltype---- decltype(x)  y//使得y和x同类型
 // decltype(expression)  var
 // decltype((call_func))  var  var与函数返回类型相同
 //4、后置返回类型
+ */
 /*template<class T1, class T2>
 //   auto funcname(T1 x, T2 y) -> decltype(x+y)
 //{
@@ -432,6 +457,68 @@ void callme2(StringBad sb)   //通过值传递 会调用拷贝构造函数生成
 
 */
 
+// 11.1-2
+/*
+#include <iostream>
+#include "mytime0.h"
+
+int main()
+{
+    using std::cout;
+    using std::endl;
+
+    Time planning;
+    Time coding(2, 40);
+    Time fixing(5, 55);
+    Time total;
+
+    cout << "planning time = " ;
+    planning.Show();
+    cout << endl;
+
+    cout << "coding time = " ;
+    coding.Show();
+    cout << endl;
+
+    cout << "fixing time = " ;
+    fixing.Show();
+    cout << endl;
+
+    total = coding.Sum(fixing);
+    cout << "coding.Sum(fixing) = " ;
+    total.Show();
+    cout << endl;
+//    operator+()
+    total = coding + fixing;
+    cout << "coding + fixing= ";
+    total.Show();
+    cout << endl;
+
+    Time morefixing(3, 28);
+    cout << "morefixing= ";
+    morefixing.Show();
+    cout << endl;
+
+    total = morefixing.operator+(total);
+    cout << "morefixing.operator+(total)= ";
+    total.Show();
+    cout << endl;
+
+//    operator-()
+    Time diff;
+    diff = fixing - coding;
+    cout << "diff = fixing - coding: ";
+    diff.Show();
+    cout << endl;
+//    operator*()
+    Time adjusted;
+    adjusted = total * 2;
+    cout << "adjusted time: ";
+    adjusted.Show();
+    cout << endl;
+
+    return 0;
+}*/
 //内存的开辟，类型占用的大小字节
 /*
 #include <iostream>
