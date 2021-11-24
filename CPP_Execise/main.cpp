@@ -458,7 +458,7 @@ void callme2(StringBad sb)   //通过值传递 会调用拷贝构造函数生成
 */
 
 // 11.1-2
-/*
+
 #include <iostream>
 #include "mytime0.h"
 
@@ -517,8 +517,33 @@ int main()
     adjusted.Show();
     cout << endl;
 
+//    friend operator*()
+    Time adjust_fri;
+    adjust_fri = 2 * total;
+    cout << "adjust_fri time: ";
+    adjust_fri.Show();
+    //    friend operator<<*()
+//    cout << adjust_fri;
+    cout << endl;
+
+    Time aida(3,35);
+    Time tosca(2, 48);
+    Time temp;
+    cout << "Aida and Tosca :\n";
+    cout << aida << "; " << tosca << endl;
+    temp = aida + tosca;
+    cout << "Aida + Tosca: " << temp << endl;
+    temp = aida * 1.17;
+    cout << "aida * 1.17: " << temp << endl;
+    cout << "10.0 * tosca: " << 10.0 * tosca << endl;
+
+
+
+
     return 0;
-}*/
+}
+
+
 //内存的开辟，类型占用的大小字节
 /*
 #include <iostream>

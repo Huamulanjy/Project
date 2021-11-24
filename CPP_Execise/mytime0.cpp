@@ -75,3 +75,26 @@ Time Time::operator*(double multiply) const
     mult.minutes = totalminutes % 60;
     return mult;
 }
+//类的友元函数是非成员函数，但是访问权限与成员函数相同
+Time operator*(double m, const Time &t)
+{
+    Time mult;
+    long totalminutes = t.hours * m * 60 + t.minutes * m;
+    mult.hours = totalminutes / 60;
+    mult.minutes = totalminutes % 60;
+    return mult;
+}
+
+//Time operator*(double m, const Time & t)
+//{
+//    return t * m;
+//}
+/*void operator<<(ostream & os, const Time & t)
+{
+    os << t.hours << " hours, " << t.minutes << " minute";
+}*/
+std::ostream & operator<<(std::ostream & os, const Time & t)
+{
+    os << t.hours << " hours, " << t.minutes << " minutes ";
+    return os;
+}
