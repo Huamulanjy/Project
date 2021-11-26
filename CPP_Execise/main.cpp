@@ -458,7 +458,7 @@ void callme2(StringBad sb)   //通过值传递 会调用拷贝构造函数生成
 */
 
 // 11.1-2
-
+/*
 #include <iostream>
 #include "mytime0.h"
 
@@ -542,6 +542,65 @@ int main()
 
     return 0;
 }
+*/
+//11.5 randwalk.cpp  using Vector class
+/*
+#include <iostream>
+#include <fstream>
+#include <cstdlib>    //rang(), srand() prototype
+#include <ctime>      //time()
+#include "vector.h"
+
+int main()
+{
+    using namespace std;
+    using VECTOR::Vector;
+    srand(time(nullptr));  //seed random-number generator
+
+    ofstream fout;
+    fout.open("RandWalk.txt");
+
+    double direction;
+    Vector step;
+    Vector result(0.0, 0.0);
+    unsigned long steps = 0;
+    double target;
+    double dstep;
+    cout << "Enter target distance (q to quit): ";
+    while (cin >> target)
+    {
+        cout << "Enter step length: ";
+        if (!(cin >> dstep))
+            break;
+        while (result.magval() < target)
+        {
+            direction = rand() % 360;
+            step.reset(dstep, direction, Vector::POL);
+            result = result + step;
+            steps++;
+        }
+        //display result
+        cout << "After " << steps << " steps, the subject has the following location: \n";
+        cout << result << endl;
+        result.polar_mode();
+        cout << "or\n" << result << endl;
+        cout << "Average outward distance per step = " << result.magval() / steps << endl;
+        fout << result << endl;
+
+        steps = 0;
+        result.reset(0.0, 0.0);
+        cout << "Enter target distance (q to quit): ";
+    }
+
+    cout << "Bye!\n";
+    cin.clear();
+    while (cin.get() != '\n')
+        continue;
+
+    return 0;
+}*/
+
+
 
 
 //内存的开辟，类型占用的大小字节
