@@ -973,6 +973,184 @@ int main()
     return 0;
 }
 */
+/*
+//function作为函数入参
+#include <iostream>
+#include <functional>
+
+void call_when_even(int x, const std::function<void(int)>& f)
+{
+    if (!(x & 1))
+    {
+        f(x);
+    }
+    return;
+}
+
+void output(int x)
+{
+    std::cout << x << std::endl;
+    return;
+}
+
+int main()
+{
+    for(int i = 0; i < 10; i++)
+    {
+        call_when_even(i, output);
+    }
+    return 0;
+}*/
+
+//CallBack Func
+
+/*回调函数其实和普通函数一样，不同的是普通函数是直接在程序中进行调用，
+回调函数是通过函数指针将它的地址传递给其它函数，函数执行在其它函数体执行，这个过程就叫做回调。*/
+/*
+//1.函数指针  int (* funcptr) (int, int)
+//将一个函数地址赋值给了函数指针
+#include <iostream>
+typedef int (*Ptr)(int, int);
+
+int Add(int a, int b){
+    return (a + b);
+}
+
+int main()
+{
+    Ptr PInt = Add;
+    std::cout << PInt(3, 5) << std::endl;
+    return 0;
+}*/
+/*
+//2.c风格的回调
+//下面将函数作为回调函数的参数的方式进行处理，函数处理结果也是一致的。
+#include <iostream>
+
+typedef int (*Ptr)(int, int);
+
+int CallBack(Ptr pInt, int a, int b){
+    return pInt(a, b);
+}
+
+int Add(int a, int b){
+    return (a + b);
+}
+
+int main()
+{
+    std::cout << CallBack(&Add, 3, 5) << std::endl;
+    return 0;
+}*/
+/*
+
+//3.c++风格的回调
+//C++中，如果回调函数是类成员函数，需要将回调函数定义成为静态。当然也可以使用全局函数，但是这样做就会破坏C++的封装性。
+#include <iostream>
+
+typedef int (*Ptr)(int, int);
+
+int RegistFuncation(Ptr pInt, int a, int b){
+    return pInt(a, b);
+}
+
+class Oneclass{
+public:
+    //callback func
+    static int Add(int a, int b)
+    {
+        return (a + b);
+    }
+    //Regist callback func
+    void RegistFuncationCallBack()
+    {
+        std::cout << RegistFuncation(Add, 3, 6);//&Add
+        return;
+    }
+};
+
+
+int main()
+{
+    Oneclass pInst;
+    pInst.RegistFuncationCallBack();
+
+    return 0;
+}
+*/
+/*
+//4.多态类型的回调
+
+//上面的代码通过定义一个纯虚的基类，里面定义了一个纯虚的公共接口，其它类都继承自基类，在使用时就可以将这个类指针传递给回调函数，进而实现回调的功能
+#include <iostream>
+class CAniable{
+public:
+    virtual void eat() = 0;
+};
+
+class CCat:public CAniable{
+public:
+    void eat() override
+    {
+        std::cout << "Cat like mouse" << std::endl;
+    }
+};
+
+class CDog:public CAniable{
+public:
+    void eat() override
+    {
+        std::cout << "dog like shit" << std::endl;
+    }
+};
+
+int main()
+{
+    CAniable *pBase = new CCat();
+    pBase->eat();
+    CAniable *pBase1 = new CDog();
+    pBase1->eat();
+    delete pBase;
+    delete pBase1;
+
+    return 0;
+}*/
+/*
+//5.function + std::bind()
+
+//function功能很函数指针功能类似，不同的是function可以调用各种对象和函数。function还可以调用lamda表达式。
+
+#include <iostream>
+#include <functional>
+typedef std::function<int(int, int)> funci;
+typedef std::function<float(float, float)> funcfloat;
+
+int Add(int a, int b)
+{
+    return (a + b);
+}
+
+class COperMath{
+public:
+    float Sum(float a, float b)//成员函数是属于对象的
+    {
+        return (a + b);
+    }
+};
+
+int main()
+{
+    //function 包裹普通函数Add
+    funci f = &Add;
+    std::cout << "func= " << f(3,7) << std::endl;
+
+    //function和bind联合使用
+    COperMath cMathIns;
+    funcfloat RegCallBack = std::bind(&COperMath::Sum, cMathIns, std::placeholders::_1, std::placeholders::_2);
+    std::cout << "RegCallBack= " << RegCallBack(6.0, 10.0) << std::endl;
+
+    return 0;
+}*/
 
 //**************std::shared_ptr<>
 /*
