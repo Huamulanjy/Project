@@ -1176,6 +1176,49 @@ int main()
 }
 */
 
+//[C++11] 改进程序性能的方法
+//1 std::move
+// 在C++11中提供了std::move方法，该方法为使用移动语义提供了方便，在使用该方法的过程中，它并没有拷贝任何对象，
+// 只是将对象的状态或者所有权从一个对象转移到了另外一个对象，因此，在实际的使用过程中，减少了对象的多次拷贝，从而提升了程序的性能。
+//1.使用move方法，则只是将SourceObject移动到DestObject对象中，仅仅是对象所有权和状态的改变，并没有发生任何拷贝。
+// 在这一过程中，move唯一的功能是将一个左值引用转换为一个右值引用，使我们通过右值引用使用这个对象，从而实现移动构造。
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+int main()
+{
+    std::string foo = "foo-string";
+    std::string bar = "bar-string";
+    std::cout << "%x " << &bar <<std::endl;  //bar address
+
+    std::vector<std::string> myvector;
+
+    myvector.push_back(foo);                 //cpoies
+    myvector.push_back(std::move(bar));      //moves
+
+    std::cout << "myvector contains: " ;
+    for(auto & v : myvector)
+    {
+        std::cout << " " << v;
+    }
+    std::cout << std::endl;
+
+    //result of using syd::move
+    std::cout << "result of using syd::move" << std::endl;
+    std::cout << "foo= " << foo << ", bar = " << bar <<std::endl;  //'bar' used after it was moved
+    std::cout << "%x " << &bar <<std::endl;  //bar addr
+
+    return 0;
+}
+
+//在上面的代码中vector插入了两个对象，第一个对象使用了拷贝，在插入容器后，依旧可以使用foo对象；
+// 第二个对象使用move，在插入容器后，就不在拥有对象!!!将一个对象的资源移动给另一个对象，并将该对象置空。
+// 所以如果在上面的代码中，加一行如下输出，实际上是bar是打印不出任何内容的
+
+//使用move传递左值时，还需要注意一点就是：td::move()可以应用于左值，但是用后就表示当前的值不再需要了，如果后续使用了该值，则会产生意想不到的结果。
+
 //bubblesort
 /*
 #include <iostream>
