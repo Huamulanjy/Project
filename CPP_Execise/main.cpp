@@ -397,7 +397,7 @@ Point-2 有什么作用？
     原型为： StringBad & StringBad::operator=(const StringBad &);   完成深拷贝
 
  */
- /*//12.(1.2.3)
+/* //12.(1.2.3)
 #include <iostream>
 #include "strngbad.h"
 using namespace std;
@@ -410,9 +410,9 @@ int main()
     using std::endl;
     {
        cout << "starting an inner block.\n";
-       StringBad headline1("C S M");  //obj：1headline1: "C S M"
-       StringBad headline2("L P");              //obj2：headline2: "L P"
-       StringBad sports("S L B for D");         //obj3：sports:"S L B for D"
+       StringBad headline1("obj1 C S M");  //obj：1headline1: "C S M"
+       StringBad headline2("obj2 L P");              //obj2：headline2: "L P"
+       StringBad sports("obj3 S L B for D");         //obj3：sports:"S L B for D"
        cout << "headline1: " << headline1 << endl;     //输出对象 重载<<
        cout << "headline2: " << headline2 << endl;
        cout << "sports: " << sports << endl;
@@ -428,6 +428,8 @@ int main()
 
         cout << "Initialize one object to another:\n";
         StringBad sailor = sports;      //note3   通过拷贝构造创建新对象obj4：sailor: "S L B for D"
+        //same as--- StringBad sailor = StringBad(sports);
+        //相应的构造函数原型为StringBad( const StringBad & ) 此即为拷贝构造函数
         cout << "sailor: " << sailor << endl;
         cout << endl;
 
@@ -454,9 +456,78 @@ void callme2(StringBad sb)   //通过值传递 会调用拷贝构造函数生成
     cout << "string passed by value:\n";
     cout << "    \"" << sb << "\"\n";
 }
-
 */
 
+/*
+//C++ Primer Plus 12.6
+
+#include <iostream>
+#include "string1.h"
+
+const int ArSize = 10;
+const int MaxLen = 81;
+
+int main()
+{
+    using std::cout;
+    using std::cin;
+    using std::endl;
+    String name;
+    cout << "Hi, what's your name?\n>> ";
+    cin >> name;
+
+    cout << name << ", please enter up to " << ArSize
+        <<" short sayings <empty line to quit>:\n";
+
+    String sayings[ArSize];             //array of objects
+    char temp[MaxLen];                  //temporary string storage
+    int i;
+    for (i = 0; i< ArSize; i++)
+    {
+        cout << i + 1 << ": ";
+        cin.get(temp, MaxLen);
+        while (cin && cin.get() != '\n')
+            continue;
+        if (!cin || temp[0] == '\0')            //empty line?
+            break;
+        else
+            sayings[i] = temp;                  //overloaded assignment "="
+    }
+
+    int total = i;                              //total # of lines read
+
+    if (total > 0)
+    {
+//        output origin string
+        cout << "Here are your sayings:\n";
+        for (i = 0; i < total; i++)
+        {
+            cout << sayings[i][0] << ": " << sayings[i] << endl;
+        }
+//        compare
+        int shortest = 0;
+        int first = 0;
+        for (i = 0; i < total; i++)
+        {
+            if (sayings[i].length() < sayings[shortest].length())
+                shortest = i;
+            if (sayings[i] < sayings[first])
+                first = i;
+        }
+//        result
+        cout << "Shortest sayings:\n" << sayings[shortest] << endl;
+        cout << "First alphabetically:\n" << sayings[first] << endl;
+        cout << "This program used " << String::HowMany() << " string objects.  Bye.\n";
+    }
+    else
+    {
+        cout << "No input! Bye.\n";
+    }
+
+    return 0;
+}
+
+*/
 // 11.1-2
 /*
 #include <iostream>
@@ -1178,6 +1249,7 @@ int main()
 
 //[C++11] 改进程序性能的方法
 //1 std::move
+/*
 // 在C++11中提供了std::move方法，该方法为使用移动语义提供了方便，在使用该方法的过程中，它并没有拷贝任何对象，
 // 只是将对象的状态或者所有权从一个对象转移到了另外一个对象，因此，在实际的使用过程中，减少了对象的多次拷贝，从而提升了程序的性能。
 //1.使用move方法，则只是将SourceObject移动到DestObject对象中，仅仅是对象所有权和状态的改变，并没有发生任何拷贝。
@@ -1218,7 +1290,7 @@ int main()
 // 所以如果在上面的代码中，加一行如下输出，实际上是bar是打印不出任何内容的
 
 //使用move传递左值时，还需要注意一点就是：td::move()可以应用于左值，但是用后就表示当前的值不再需要了，如果后续使用了该值，则会产生意想不到的结果。
-
+*/
 //bubblesort
 /*
 #include <iostream>
