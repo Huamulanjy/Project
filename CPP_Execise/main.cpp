@@ -671,7 +671,76 @@ int main()
     return 0;
 }*/
 
+//13 类继承
+  /*  13.1 基类指针/引用 可以在不进行显示类型转换的情况下指向/引用 派生类对象
+    13.2 is-a（是一种）关系。使用公有继承实现is-a关系； is-a关系通常是不可逆的，水果不是香蕉
+    13.3 多态公有继承。 在基类中将派生类会重新定义的方法声明为虚函数
+            基类声明虚析构函数的目的：为了释放子类对象时，按正确的顺序调用虚构函数（先子类析构，后父类析构）
+            2条经验规则：1、返回类型协变：虚函数在子类中重新定义，应确保与原来的原型完全相同。但是如果返回类型是基类指针或者引用，则可以修改为指向派生类的指针或引用。
+                        2、如果基类中虚函数被重载了，则在派生类中重新定义所有的基类版本
+            */
+  /*
+//使用虚析构函数可以保证正确的析构函数序列（子类和父类）被调用
+//13.10 usebrass2.cpp
+#include <iostream>
+#include <string>
+#include "brass.h"
+const int CLIENTS = 4;
 
+int main()
+{
+    using std::cin;
+    using std::cout;
+    using std::endl;
+
+    Brass * p_clients[CLIENTS];
+    std::string temp;
+    long tempnum;
+    double tempbal;
+    char kind;
+
+//    for (int i = 0; i < CLIENTS; i++)
+    for (auto & p_client : p_clients)
+    {
+        cout << "Enter client's name: ";
+        getline(cin, temp);
+        cout << "Enter client's account number: ";
+        cin >> tempnum;
+        cout << "Enter opening balance: ";
+        cin >> tempbal;
+        cout << "Enter 1 for Brass Account or 2 for Brassplus Account: ";
+        while (cin >> kind && (kind != '1' && kind != '2'))
+            cout << "Enter either 1 or 2: ";
+        if (kind == '1')
+            p_client = new Brass(temp, tempnum,tempbal);
+        else{
+            double tmax, trate;
+            cout << "Enter the overdraft limit: $";
+            cin >> tmax;
+            cout << "Enter the interest rate: ";
+            cin >> trate;
+            p_client = new BrassPlus(temp, tempnum, tempbal, tmax, trate);
+        }
+        while (cin.get() != '\n')
+            continue;
+    }
+    cout << endl;
+//    viewAcct
+    for (int i = 0; i < CLIENTS; i++)
+    {
+        p_clients[i]->ViewAcct();
+        cout << endl;
+    }
+//use range-base for loop
+    for (auto & p_client : p_clients)
+    {
+        delete  p_client;    //free memory
+    }
+
+    cout << "Done.\n";
+    return 0;
+}
+*/
 
 
 //内存的开辟，类型占用的大小字节
