@@ -741,6 +741,66 @@ int main()
     return 0;
 }
 */
+//13.13 usebrass3.cpp
+#include <iostream>
+#include <string>
+#include "acctabc.h"
+
+const int CLIENTS = 4;
+
+int main()
+{
+    using std::cin;
+    using std::cout;
+    using std::endl;
+
+    AcctABC * p_clients[CLIENTS];      //pointer to ABC
+    std::string temp;
+    long tempnum;
+    double tempbal;
+    char kind;
+
+//    for (int i = 0; i < CLIENTS; i++)
+    for (auto & p_client : p_clients)
+    {
+        cout << "Enter client's name: ";
+        getline(cin, temp);
+        cout << "Enter client's account number: ";
+        cin >> tempnum;
+        cout << "Enter opening balance: ";
+        cin >> tempbal;
+        cout << "Enter 1 for Brass Account or 2 for Brassplus Account: ";
+        while (cin >> kind && (kind != '1' && kind != '2'))
+            cout << "Enter either 1 or 2: ";
+        if (kind == '1')
+            p_client = new Brass(temp, tempnum,tempbal);
+        else{
+            double tmax, trate;
+            cout << "Enter the overdraft limit: $";
+            cin >> tmax;
+            cout << "Enter the interest rate: ";
+            cin >> trate;
+            p_client = new BrassPlus(temp, tempnum, tempbal, tmax, trate);
+        }
+        while (cin.get() != '\n')
+            continue;
+    }
+    cout << endl;
+//    viewAcct
+    for (int i = 0; i < CLIENTS; i++)
+    {
+        p_clients[i]->ViewAcct();
+        cout << endl;
+    }
+//use range-base for loop
+    for (auto & p_client : p_clients)
+    {
+        delete  p_client;    //free memory
+    }
+
+    cout << "Done.\n";
+    return 0;
+}
 
 
 //内存的开辟，类型占用的大小字节
